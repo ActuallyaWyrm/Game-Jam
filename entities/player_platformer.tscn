@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://oy67rn0cumj3"]
+
+[ext_resource type="SpriteFrames" uid="uid://cwcpt3gfwa0mr" path="res://assets/animations/placeholder.tres" id="1_merdl"]
+[ext_resource type="Script" uid="uid://bmjjutu7mwuui" path="res://entities/grapple_platformer.gd" id="1_sposy"]
+[ext_resource type="PackedScene" uid="uid://d0fndxcwh4wv8" path="res://entities/grapple_platformer.tscn" id="3_sposy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 40.0
+height = 80.0
+
+[node name="PlayerPlatformer" type="CharacterBody2D" unique_id=171132049]
+script = ExtResource("1_sposy")
+
+[node name="RayCast" type="Node2D" parent="." unique_id=1275242618]
+position = Vector2(60, 45)
+rotation = -0.7679449
+
+[node name="RayCast2D8" type="RayCast2D" parent="RayCast" unique_id=1929768908]
+position = Vector2(29.175648, -30.212257)
+rotation = -0.69813174
+target_position = Vector2(0, 500)
+
+[node name="RayCast2D7" type="RayCast2D" parent="RayCast" unique_id=1095751124]
+position = Vector2(25.007702, -25.896221)
+rotation = -0.5934119
+target_position = Vector2(0, 500)
+
+[node name="RayCast2D9" type="RayCast2D" parent="RayCast" unique_id=1950441280]
+position = Vector2(31.259628, -32.37028)
+rotation = -0.8028515
+target_position = Vector2(0, 500)
+
+[node name="RayCast2D10" type="RayCast2D" parent="RayCast" unique_id=839158042]
+position = Vector2(33.34361, -34.5283)
+rotation = -0.9075712
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 500)
+
+[node name="RayCast2D11" type="RayCast2D" parent="RayCast" unique_id=162316839]
+position = Vector2(37.511555, -38.844345)
+rotation = -1.0122911
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(0, 500)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
+position = Vector2(-1.4210855e-14, 1.1920929e-07)
+scale = Vector2(0.15369293, 0.15369289)
+sprite_frames = ExtResource("1_merdl")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="GrappleController" parent="." unique_id=866389898 instance=ExtResource("3_sposy")]
