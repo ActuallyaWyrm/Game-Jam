@@ -139,12 +139,12 @@ func hook():
 		var release_mod = 1
 		if hook_pos:
 			if hook_pos.y < global_position.y:
-				release_mod = -1
-			else:
 				release_mod = 1
+			else:
+				release_mod = -1
 		hooked = false
 		hook_pos = false
-		velocity.x *= (release_mod * direction)
+		velocity.x *= (release_mod)
 	#if Input.is_action_just_pressed("zip"):
 		#hook_pos = get_hook_pos()
 		#if hook_pos and !zipping and !hooked:
