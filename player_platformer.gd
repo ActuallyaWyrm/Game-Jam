@@ -136,8 +136,15 @@ func hook():
 			hook_velocity = to_local(hook_pos).normalized() * rope_pull
 			current_rope_length = global_position.distance_to(hook_pos)
 	if Input.is_action_just_released("grapple"):
+		var release_mod = 1
+		if hook_pos:
+			if hook_pos.y < global_position.y:
+				release_mod = -1
+			else:
+				release_mod = 1
 		hooked = false
 		hook_pos = false
+		velocity.x *= (release_mod * direction)
 	#if Input.is_action_just_pressed("zip"):
 		#hook_pos = get_hook_pos()
 		#if hook_pos and !zipping and !hooked:
