@@ -4,9 +4,9 @@ extends CharacterBody2D
 
 var slide_mod = 1.5
 var sliding = false
-var speed = 25
+var speed = 2000
 var jump_height = 1500
-var rope_length = 500
+var rope_length = 400
 var rope_pull = 300
 var grav = 100
 var direction:
@@ -19,6 +19,8 @@ var direction:
 var hook_velocity = Vector2()
 var angle = 0
 var walk_angle = 0
+var release_mod = 0
+var vertical_boost = 0
 
 # grapple vars
 
@@ -28,8 +30,10 @@ var launched = false
 var hooked = false
 var zipping = false
 
-# camera var
+# drawing vars
 
+var draw_jump = false
+@onready var animation = $AnimatedSprite2D
 @onready var camera = $Camera2D
 
 # create current rope var
@@ -46,7 +50,8 @@ func gravity():
 	
 # basic movement code (run + jump + slide)	
 	
-func move(delta):
+func move(delta):	
+	
 	# set slope angle speed modifier
 	
 	var max_mod
@@ -60,7 +65,9 @@ func move(delta):
 	
 	if (Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()):
 		velocity.y -= (jump_height + max_mod)
-	
+		draw_jump = true
+
+
 	# climb up rope
 	#if (Input.is_action_pressed("jump") and hooked):
 		#velocity.y -= 150
@@ -76,10 +83,8 @@ func move(delta):
 	
 	if Input.is_action_just_pressed("slide"):
 		sliding = true
-		scale = lerp(scale, Vector2(1,0.25), 0.5)
 	if Input.is_action_just_released("slide"):
 		sliding = false
-		scale = lerp(scale, Vector2(1,1.5), 0.5)
 	
 	# limit velocity
 	
@@ -88,9 +93,9 @@ func move(delta):
 			walk_angle = rad_to_deg(get_floor_angle())
 		else:
 			walk_angle = 0
-		velocity.x *= (1 + walk_angle) * 1.1
-		velocity.x = clamp(lerp(velocity.x, velocity.x + speed * direction, 0.75), -2500 - max_mod / 2, 2500 + max_mod / 2)
-		velocity.y *= 1 + (walk_angle / 100)
+		velocity.y *= vertical_boost
+		vertical_boost = 1
+		velocity.x = clamp(lerp(velocity.x, float(speed * direction), 0.75), -2500 - max_mod, 2500 + max_mod)
 		velocity.y = clamp(velocity.y, -jump_height - max_mod, jump_height + max_mod)
 		camera.global_rotation = 0
 	else:
@@ -98,10 +103,10 @@ func move(delta):
 			walk_angle = rad_to_deg(get_floor_angle())
 		else:
 			walk_angle = 0
-		velocity.x *= 1 + walk_angle * 1.2
-		velocity.x = clamp(lerp(velocity.x, velocity.x + speed * slide_mod * direction, 0.85), -3000 - max_mod * 2, 3000 + max_mod * 2)
-		velocity.y *= 1 + (walk_angle / 100)
-		velocity.y = clamp(velocity.y, -jump_height - max_mod, jump_height + max_mod)
+		velocity.y *= vertical_boost
+		vertical_boost = 1
+		velocity.x = clamp(lerp(velocity.x, speed * slide_mod * direction, 0.85), -3000 - max_mod * 2, 3000 + max_mod * 2)
+		velocity.y = clamp(velocity.y, -jump_height - max_mod * 2, jump_height + max_mod * 2)
 		camera.global_rotation = -0.3 * direction
 	
 	
@@ -122,7 +127,6 @@ func _physics_process(delta: float) -> void:
 	elif zipping:
 		zip(delta)
 	move(delta)
-	apply_floor_snap()
 	move_and_slide()
 
 # handle grapple input
@@ -136,15 +140,16 @@ func hook():
 			hook_velocity = to_local(hook_pos).normalized() * rope_pull
 			current_rope_length = global_position.distance_to(hook_pos)
 	if Input.is_action_just_released("grapple"):
-		var release_mod = 1
 		if hook_pos:
-			if hook_pos.y < global_position.y:
-				release_mod = 1
-			else:
+			if hook_pos.y > global_position.y:
 				release_mod = -1
+				vertical_boost = 2500
+			else:
+				release_mod = 1
+				vertical_boost = 1
 		hooked = false
 		hook_pos = false
-		velocity.x *= (release_mod)
+		print(vertical_boost)
 	#if Input.is_action_just_pressed("zip"):
 		#hook_pos = get_hook_pos()
 		#if hook_pos and !zipping and !hooked:
@@ -200,10 +205,27 @@ func _input(event: InputEvent) -> void:
 # draw line between hook and player
 
 func _draw() -> void:
+	if (Input.is_action_just_pressed("jump") and !zipping and !hooked and draw_jump):
+			animation.play("jump")
+			animation.speed_scale = 2
+			draw_jump = false
+		
+	if is_on_floor():
+			if !sliding:
+				if direction != 0:
+					animation.play("walk")
+					animation.speed_scale = velocity.x / 1000
+				else:
+					animation.play("idle")
+					animation.speed_scale = 0.5
+	elif !draw_jump:
+		animation.play("fall")
+		animation.speed_scale = 1
+	
 	if direction > 0:
-		$AnimatedSprite2D.scale.x = 0.154
+		animation.scale.x = 5
 	if direction < 0:
-		$AnimatedSprite2D.scale.x = -0.154
+		animation.scale.x = -5
 	
 	var pos = global_position
 	if hook_pos:

@@ -2,44 +2,52 @@
 
 [ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
+[ext_resource type="AudioStream" uid="uid://ccm836xbso5cf" path="res://assets/audio/music/temporary/rush.wav" id="3_85uu4"]
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
 [node name="Grabables" type="Node2D" parent="." unique_id=2115641317]
-position = Vector2(3038, -186)
-rotation = 3.1415927
-scale = Vector2(3.1149793, 0.7283325)
-
-[node name="Grabable3" parent="Grabables" unique_id=936002428 instance=ExtResource("1_j2uy2")]
-position = Vector2(-897.91925, -1393.5942)
-rotation = 0.9348383
-scale = Vector2(0.84070945, 1.312508)
-skew = -0.86092275
+position = Vector2(1108, 46)
 
 [node name="Grabable4" parent="Grabables" unique_id=1794959916 instance=ExtResource("1_j2uy2")]
 position = Vector2(-1704.9873, -1762.9312)
 rotation = -3.1415927
 scale = Vector2(0.9835558, -1.0671432)
 
-[node name="Grabable5" parent="Grabables" unique_id=217706065 instance=ExtResource("1_j2uy2")]
-position = Vector2(-727.77374, 830.6646)
-rotation = -3.1415927
-scale = Vector2(0.32102942, 1.3729993)
+[node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
+position = Vector2(1387, -403)
+scale = Vector2(0.36880434, 0.9487343)
+
+[node name="Grabable8" parent="Grabables" unique_id=1320924399 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1471, 1376)
+scale = Vector2(8.275414, 1.8851271)
 
 [node name="Grabable6" parent="Grabables" unique_id=1078555241 instance=ExtResource("1_j2uy2")]
-position = Vector2(16.372437, 2018.309)
+position = Vector2(-1084, 493)
 rotation = -3.1415927
-scale = Vector2(0.82183576, 1.3729993)
+scale = Vector2(1.3018355, 1.3729993)
+
+[node name="Grabable3" parent="Grabables" unique_id=1347234046 instance=ExtResource("1_j2uy2")]
+position = Vector2(-4855, -1270)
+rotation = 0.27640325
+scale = Vector2(3.6241632, -1.2321057)
+skew = 0.010795832
 
 [node name="Grabable2" parent="Grabables" unique_id=645432284 instance=ExtResource("1_j2uy2")]
-position = Vector2(880.58374, -967.96454)
+position = Vector2(188.00006, -1241.0001)
 rotation = -3.1415927
-scale = Vector2(0.32102942, 1.3729993)
+scale = Vector2(1.4010304, 1.3729993)
 
 [node name="Grabable" parent="Grabables" unique_id=1187165573 instance=ExtResource("1_j2uy2")]
-position = Vector2(137.07956, 0)
+position = Vector2(284.99997, 195)
+rotation = -0.46641505
 scale = Vector2(0.66612923, 1)
 
 [node name="PlayerPlatformer" parent="." unique_id=171132049 instance=ExtResource("1_xxtnn")]
 position = Vector2(296, 381)
-floor_snap_length = 22.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=862126884]
+position = Vector2(-108, -634)
+stream = ExtResource("3_85uu4")
+autoplay = true
+max_distance = 100000.0
