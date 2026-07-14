@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw8mkc0jw6t5s"
-path="res://.godot/imported/BarEnviroUnfinished.png-c04ab3d1152d68c36c65786612ca2811.ctex"
+uid="uid://ckpvq2w267j3x"
+path="res://.godot/imported/bar-level-pixilart (4).png-7b44582c467f12b6b1e7ab2126b8c818.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HackNSlash Assets/BarEnviroUnfinished.png"
-dest_files=["res://.godot/imported/BarEnviroUnfinished.png-c04ab3d1152d68c36c65786612ca2811.ctex"]
+source_file="res://assets/bar-level-pixilart (4).png"
+dest_files=["res://.godot/imported/bar-level-pixilart (4).png-7b44582c467f12b6b1e7ab2126b8c818.ctex"]
 
 [params]
 

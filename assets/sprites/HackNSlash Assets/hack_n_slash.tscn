@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://diidsrqqtg335"]
+
+[ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/bar-level-pixilart (4).png" id="1_o3afp"]
+
+[node name="HackNSlash" type="Node2D" unique_id=203919341]
+
+[node name="EnviromentBackground" type="Node2D" parent="." unique_id=16762051]
+
+[node name="BarLevelPixilart(4)" type="Sprite2D" parent="EnviromentBackground" unique_id=1949093678]
+position = Vector2(1276, 326)
+scale = Vector2(2.55, 2.55)
+texture = ExtResource("1_o3afp")
+
+[node name="EnvironmentForeground" type="Node2D" parent="." unique_id=680602586]
+
+[node name="EnvironmentHitbox" type="Node2D" parent="." unique_id=1540035782]
