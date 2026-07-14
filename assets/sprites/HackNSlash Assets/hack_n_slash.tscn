@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://diidsrqqtg335"]
 
 [ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/bar-level-pixilart (4).png" id="1_o3afp"]
+[ext_resource type="Texture2D" uid="uid://8yeop3x3n0tp" path="res://assets/bar-level-3-pixilart.png" id="2_441wl"]
 
 [node name="HackNSlash" type="Node2D" unique_id=203919341]
 
@@ -10,6 +11,11 @@
 position = Vector2(1276, 326)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_o3afp")
+
+[node name="BarLevel3Pixilart" type="Sprite2D" parent="EnviromentBackground/BarLevelPixilart(4)" unique_id=1767906794]
+position = Vector2(750.1959, -1.6093254e-06)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_441wl")
 
 [node name="EnvironmentForeground" type="Node2D" parent="." unique_id=680602586]
 
