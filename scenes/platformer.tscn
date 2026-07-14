@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
-[ext_resource type="AudioStream" uid="uid://ccm836xbso5cf" path="res://assets/audio/music/temporary/rush.wav" id="3_85uu4"]
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
@@ -45,9 +44,3 @@ scale = Vector2(0.66612923, 1)
 
 [node name="PlayerPlatformer" parent="." unique_id=171132049 instance=ExtResource("1_xxtnn")]
 position = Vector2(296, 381)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=862126884]
-position = Vector2(-108, -634)
-stream = ExtResource("3_85uu4")
-autoplay = true
-max_distance = 100000.0

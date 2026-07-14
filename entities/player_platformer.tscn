@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 26.0
-height = 120.0
+height = 110.0
 
 [node name="PlayerPlatformer" type="CharacterBody2D" unique_id=171132049]
 floor_constant_speed = true
@@ -31,10 +31,12 @@ rotation = -0.02617994
 target_position = Vector2(1000, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
-position = Vector2(-8.4703295e-22, 7.1054274e-15)
+position = Vector2(-3.0092655e-36, 0)
 scale = Vector2(5, 5)
 sprite_frames = ExtResource("2_tmbtj")
-animation = &"idle"
+animation = &"swing_air"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
 shape = SubResource("CapsuleShape2D_g4v7s")
@@ -45,6 +47,7 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 texture = ExtResource("4_tmbtj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2054317689]
+position = Vector2(0, 51)
 ignore_rotation = false
 zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 1.0

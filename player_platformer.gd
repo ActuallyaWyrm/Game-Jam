@@ -9,6 +9,7 @@ var jump_height = 1500
 var rope_length = 400
 var rope_pull = 300
 var grav = 100
+var jumping = false
 var direction:
 	set(value):
 		if direction != value and (direction != 0):
@@ -32,7 +33,9 @@ var zipping = false
 
 # drawing vars
 
+var draw_slide = false
 var draw_jump = false
+var draw_swing_air = false
 @onready var animation = $AnimatedSprite2D
 @onready var camera = $Camera2D
 
@@ -50,7 +53,7 @@ func gravity():
 	
 # basic movement code (run + jump + slide)	
 	
-func move(delta):	
+func move(delta):
 	
 	# set slope angle speed modifier
 	
@@ -63,7 +66,9 @@ func move(delta):
 	
 	# jump
 	
-	if (Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()):
+	jumping = Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()
+	
+	if jumping:
 		velocity.y -= (jump_height + max_mod)
 		draw_jump = true
 
@@ -83,8 +88,10 @@ func move(delta):
 	
 	if Input.is_action_just_pressed("slide"):
 		sliding = true
+		draw_slide = true
 	if Input.is_action_just_released("slide"):
 		sliding = false
+		draw_slide = false
 	
 	# limit velocity
 	
@@ -134,6 +141,7 @@ func _physics_process(delta: float) -> void:
 func hook():
 	$RayCast.look_at($Cursor.global_position)
 	if Input.is_action_just_pressed("grapple"):
+		draw_swing_air = true
 		hook_pos = get_hook_pos()
 		if hook_pos and !zipping and !hooked:
 			hooked = true
@@ -149,7 +157,6 @@ func hook():
 				vertical_boost = 1
 		hooked = false
 		hook_pos = false
-		print(vertical_boost)
 	#if Input.is_action_just_pressed("zip"):
 		#hook_pos = get_hook_pos()
 		#if hook_pos and !zipping and !hooked:
@@ -205,31 +212,41 @@ func _input(event: InputEvent) -> void:
 # draw line between hook and player
 
 func _draw() -> void:
-	if (Input.is_action_just_pressed("jump") and !zipping and !hooked and draw_jump):
-			animation.play("jump")
+	if hook_pos:
+		if hooked or zipping:
+			draw_line(Vector2(0, -32), to_local(hook_pos), Color.BLACK, 3, true)
+	if draw_swing_air:
+		animation.play("swing_air")
+		animation.speed_scale = 4
+		await animation.animation_finished
+		draw_swing_air = false
+	elif is_on_floor():
+		if !sliding:
+			if direction != 0:
+				animation.play("walk")
+				animation.speed_scale = velocity.x / 1000
+			else:
+				animation.play("idle")
+				animation.speed_scale = 0.5
+		elif draw_slide:
+			animation.play("slide_enter")
 			animation.speed_scale = 2
-			draw_jump = false
-		
-	if is_on_floor():
-			if !sliding:
-				if direction != 0:
-					animation.play("walk")
-					animation.speed_scale = velocity.x / 1000
-				else:
-					animation.play("idle")
-					animation.speed_scale = 0.5
-	elif !draw_jump:
+			await animation.animation_finished
+			draw_slide = false
+		else:
+			animation.play("slide")
+			animation.speed_scale = 2 * abs(direction)
+			
+	elif draw_jump:
+		animation.play("jump")
+		animation.speed_scale = 2
+		await animation.animation_finished
+		draw_jump = false
+	else:
 		animation.play("fall")
 		animation.speed_scale = 1
-	
 	if direction > 0:
 		animation.scale.x = 5
 	if direction < 0:
 		animation.scale.x = -5
-	
 	var pos = global_position
-	if hook_pos:
-		if hooked or zipping:
-			draw_line(Vector2(0, -32), to_local(hook_pos), Color.BLACK, 3, true)
-	else:
-		return
