@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://diidsrqqtg335"]
 
+[ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/alley-level-1-2-pixilart.png" id="1_3hdrw"]
 [ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/bar-level-pixilart (4).png" id="1_o3afp"]
 [ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/bar-level-3-pixilart (1).png" id="2_441wl"]
 
@@ -7,21 +8,28 @@
 
 [node name="HackNSlash" type="Node2D" unique_id=203919341]
 
-[node name="EnviromentBackground" type="Node2D" parent="." unique_id=16762051]
+[node name="AlleyLevel" type="Node2D" parent="." unique_id=104021680]
 
-[node name="BarEnviroArt" type="Sprite2D" parent="EnviromentBackground" unique_id=1949093678]
-position = Vector2(1292, 301)
+[node name="AlleyLevel12Pixilart" type="Sprite2D" parent="AlleyLevel" unique_id=885389134]
+position = Vector2(1280, -828)
+scale = Vector2(2.55, 2.55)
+texture = ExtResource("1_3hdrw")
+
+[node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
+
+[node name="EnviromentBackground" type="Node2D" parent="BarLevel" unique_id=16762051]
+
+[node name="BarEnviroArt" type="Sprite2D" parent="BarLevel/EnviromentBackground" unique_id=1949093678]
+position = Vector2(1275, 306.99997)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_o3afp")
 
-[node name="BarEnviroEndish" type="Sprite2D" parent="EnviromentBackground/BarEnviroArt" unique_id=1767906794]
+[node name="BarEnviroEndish" type="Sprite2D" parent="BarLevel/EnviromentBackground/BarEnviroArt" unique_id=1767906794]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("2_441wl")
 
-[node name="EnvironmentForeground" type="Node2D" parent="." unique_id=680602586]
+[node name="EnvironmentHitbox" type="Node2D" parent="BarLevel" unique_id=1540035782]
 
-[node name="EnvironmentHitbox" type="Node2D" parent="." unique_id=1540035782]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="EnvironmentHitbox" unique_id=1631967903]
+[node name="StaticBody2D" type="StaticBody2D" parent="BarLevel/EnvironmentHitbox" unique_id=1631967903]
 physics_material_override = SubResource("PhysicsMaterial_xy1b7")
