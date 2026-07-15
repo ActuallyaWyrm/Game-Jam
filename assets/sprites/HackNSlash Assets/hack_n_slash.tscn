@@ -9,12 +9,12 @@
 
 [node name="EnviromentBackground" type="Node2D" parent="." unique_id=16762051]
 
-[node name="BarLevelPixilart(4)" type="Sprite2D" parent="EnviromentBackground" unique_id=1949093678]
+[node name="BarEnviroArt" type="Sprite2D" parent="EnviromentBackground" unique_id=1949093678]
 position = Vector2(1292, 301)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_o3afp")
 
-[node name="BarLevel3Pixilart" type="Sprite2D" parent="EnviromentBackground/BarLevelPixilart(4)" unique_id=1767906794]
+[node name="BarEnviroEndish" type="Sprite2D" parent="EnviromentBackground/BarEnviroArt" unique_id=1767906794]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("2_441wl")
