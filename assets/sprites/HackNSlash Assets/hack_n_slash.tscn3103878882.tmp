@@ -15,7 +15,7 @@
 [node name="AlleyLevel" type="Node2D" parent="." unique_id=104021680]
 
 [node name="AlleyLevel12Pixilart" type="Sprite2D" parent="AlleyLevel" unique_id=885389134]
-position = Vector2(1277, 330)
+position = Vector2(1276.9999, 329.00012)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_3hdrw")
 
@@ -47,11 +47,10 @@ script = ExtResource("4_buh41")
 scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("4_olhsv")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243 node_paths=PackedStringArray("fm")]
-position = Vector2(292, 330)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243]
+position = Vector2(291.99988, 410.00006)
 scale = Vector2(2.55, 2.55)
 script = ExtResource("7_51mk3")
-fm = NodePath("../Fisherman")
 
 [node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
 z_index = -1
