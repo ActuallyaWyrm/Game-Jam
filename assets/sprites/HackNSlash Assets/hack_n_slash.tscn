@@ -29,7 +29,7 @@ scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_3hdrw")
 
 [node name="EnviroHitboxesAlley" type="StaticBody2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1146209461]
-position = Vector2(-501.1765, -128.62746)
+position = Vector2(-489.41177, -128.62746)
 scale = Vector2(0.3921569, 0.3921569)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="AlleyLevel/AlleyLevel12Pixilart/EnviroHitboxesAlley" unique_id=1678657603]
