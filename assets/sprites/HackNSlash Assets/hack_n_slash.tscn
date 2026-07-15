@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/alley-level-1-2-pixilart.png" id="1_3hdrw"]
 [ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/bar-level-pixilart (4).png" id="1_o3afp"]
 [ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/bar-level-3-pixilart (1).png" id="2_441wl"]
+[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/fisherman fighter.png" id="4_olhsv"]
+[ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="5_buh41"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xy1b7"]
 
@@ -11,7 +13,7 @@
 [node name="AlleyLevel" type="Node2D" parent="." unique_id=104021680]
 
 [node name="AlleyLevel12Pixilart" type="Sprite2D" parent="AlleyLevel" unique_id=885389134]
-position = Vector2(1280, -828)
+position = Vector2(1276.9999, 329.00012)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_3hdrw")
 
@@ -20,7 +22,7 @@ texture = ExtResource("1_3hdrw")
 [node name="EnviromentBackground" type="Node2D" parent="BarLevel" unique_id=16762051]
 
 [node name="BarEnviroArt" type="Sprite2D" parent="BarLevel/EnviromentBackground" unique_id=1949093678]
-position = Vector2(1275, 306.99997)
+position = Vector2(1278, 1125)
 scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_o3afp")
 
@@ -33,3 +35,14 @@ texture = ExtResource("2_441wl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BarLevel/EnvironmentHitbox" unique_id=1631967903]
 physics_material_override = SubResource("PhysicsMaterial_xy1b7")
+
+[node name="FishermanFighter" type="Sprite2D" parent="." unique_id=1090419074]
+position = Vector2(291.99988, 410.00006)
+scale = Vector2(2.55, 2.55)
+texture = ExtResource("4_olhsv")
+
+[node name="Screenborder" type="Sprite2D" parent="FishermanFighter" unique_id=1938870260]
+z_index = -1
+position = Vector2(120.00006, -29.80394)
+scale = Vector2(1.0000001, 1.1874511)
+texture = ExtResource("5_buh41")
