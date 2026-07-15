@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
+[ext_resource type="Texture2D" uid="uid://co0re36ykwxr4" path="res://assets/sprites/backgrounds/bg_layer_1.png" id="3_85uu4"]
+[ext_resource type="Texture2D" uid="uid://b65e3cof00r6m" path="res://assets/sprites/backgrounds/bg_layer_2.png" id="4_nd818"]
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
@@ -30,7 +32,6 @@ scale = Vector2(1.3018355, 1.3729993)
 position = Vector2(-4855, -1270)
 rotation = 0.27640325
 scale = Vector2(3.6241632, -1.2321057)
-skew = 0.010795832
 
 [node name="Grabable2" parent="Grabables" unique_id=645432284 instance=ExtResource("1_j2uy2")]
 position = Vector2(188.00006, -1241.0001)
@@ -43,4 +44,30 @@ rotation = -0.46641505
 scale = Vector2(0.66612923, 1)
 
 [node name="PlayerPlatformer" parent="." unique_id=171132049 instance=ExtResource("1_xxtnn")]
-position = Vector2(296, 381)
+position = Vector2(-2, 315)
+
+[node name="Background" type="Node2D" parent="." unique_id=1833320204]
+
+[node name="Back" type="Parallax2D" parent="Background" unique_id=1893041181]
+z_index = -10
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-769, -234)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Back" unique_id=873555203]
+scale = Vector2(7, 7)
+texture = ExtResource("3_85uu4")
+centered = false
+
+[node name="Middle" type="Parallax2D" parent="Background" unique_id=1239303593]
+z_index = -9
+scroll_scale = Vector2(0.5, 0)
+scroll_offset = Vector2(-769, -234)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Middle" unique_id=779453979]
+scale = Vector2(7, 7)
+texture = ExtResource("4_nd818")
+centered = false

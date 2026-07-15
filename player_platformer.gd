@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 # movement vars
 
+enum WalkState {STOP, MACH_1, MACH_2, MACH_3, MAX, SLOW}
+var current_state = WalkState.STOP
 var slide_mod = 1.5
 var sliding = false
 var speed = 2000
@@ -12,11 +14,18 @@ var grav = 100
 var jumping = false
 var direction:
 	set(value):
-		if direction != value and (direction != 0):
-			direction = 0
+		if value == 0:
+			current_state = WalkState.SLOW
 		else:
-			direction = value
+			match current_state:
+				WalkState.STOP: current_state == WalkState.MACH_1
+				WalkState.SLOW: current_state == WalkState.MACH_1
+				WalkState.MACH_1: current_state == WalkState.MACH_1
+				WalkState.MACH_2: current_state == WalkState.MACH_1
+				WalkState.MACH_3: current_state == WalkState.MACH_2
+				WalkState.MAX: current_state == WalkState.MAX
 		
+		direction = value
 var hook_velocity = Vector2()
 var angle = 0
 var walk_angle = 0
@@ -29,7 +38,6 @@ var hook_pos = Vector2()
 var current_rope_length
 var launched = false
 var hooked = false
-var zipping = false
 
 # drawing vars
 
@@ -61,28 +69,22 @@ func move(delta):
 	
 	if (walk_angle == 180) or (walk_angle == 0):
 		max_mod = 0
+	elif is_on_floor():
+		max_mod = 1000 + (abs(walk_angle) * 10)
 	else:
-		max_mod = 1000 + abs(walk_angle)
+		max_mod = 0
 	
 	# jump
 	
-	jumping = Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()
+	jumping = Input.is_action_just_pressed("jump") and !hooked and is_on_floor()
 	
 	if jumping:
 		velocity.y -= (jump_height + max_mod)
 		draw_jump = true
-
-
-	# climb up rope
-	#if (Input.is_action_pressed("jump") and hooked):
-		#velocity.y -= 150
 	
 	# walk
 	
-	if !zipping:
-		direction = Input.get_axis("walk_left", "walk_right")
-	else:
-		direction = 0
+	direction = Input.get_axis("walk_left", "walk_right")
 	
 	# slide
 	
@@ -95,26 +97,24 @@ func move(delta):
 	
 	# limit velocity
 	
-	if !sliding or !is_on_floor():
-		if is_on_floor():
-			walk_angle = rad_to_deg(get_floor_angle())
-		else:
-			walk_angle = 0
+	if is_on_floor():
+		walk_angle = rad_to_deg(get_floor_angle())
 		velocity.y *= vertical_boost
 		vertical_boost = 1
-		velocity.x = clamp(lerp(velocity.x, float(speed * direction), 0.75), -2500 - max_mod, 2500 + max_mod)
-		velocity.y = clamp(velocity.y, -jump_height - max_mod, jump_height + max_mod)
-		camera.global_rotation = 0
+		if sliding:
+			slide_mod = 1.5
+			camera.global_rotation = 25 * direction
+		else:
+			slide_mod = 1
+			camera.global_rotation = 0
+		velocity.x = float(speed * direction * slide_mod)
 	else:
-		if is_on_floor():
-			walk_angle = rad_to_deg(get_floor_angle())
-		else:
-			walk_angle = 0
+		walk_angle = 0
 		velocity.y *= vertical_boost
 		vertical_boost = 1
-		velocity.x = clamp(lerp(velocity.x, speed * slide_mod * direction, 0.85), -3000 - max_mod * 2, 3000 + max_mod * 2)
-		velocity.y = clamp(velocity.y, -jump_height - max_mod * 2, jump_height + max_mod * 2)
-		camera.global_rotation = -0.3 * direction
+		velocity.x = clamp(float(speed * direction), - 2500, 2500)
+		velocity.y = clamp(velocity.y, -jump_height, jump_height)
+		camera.global_rotation = 0
 	
 	
 	if !direction and !sliding:
@@ -131,8 +131,6 @@ func _physics_process(delta: float) -> void:
 	if hooked:
 		gravity()
 		swing(delta)
-	elif zipping:
-		zip(delta)
 	move(delta)
 	move_and_slide()
 
@@ -143,7 +141,7 @@ func hook():
 	if Input.is_action_just_pressed("grapple"):
 		draw_swing_air = true
 		hook_pos = get_hook_pos()
-		if hook_pos and !zipping and !hooked:
+		if hook_pos and !hooked:
 			hooked = true
 			hook_velocity = to_local(hook_pos).normalized() * rope_pull
 			current_rope_length = global_position.distance_to(hook_pos)
@@ -157,14 +155,6 @@ func hook():
 				vertical_boost = 1
 		hooked = false
 		hook_pos = false
-	#if Input.is_action_just_pressed("zip"):
-		#hook_pos = get_hook_pos()
-		#if hook_pos and !zipping and !hooked:
-			#zipping = true
-			#current_rope_length = global_position.distance_to(hook_pos)
-	#if Input.is_action_just_released("zip"):
-		#hook_pos = false
-		#zipping = false
 
 # find where hook hit
 
@@ -175,18 +165,6 @@ func get_hook_pos():
 			
 
 # swing player
-
-func zip(delta):
-	if hook_pos:
-		var radius = global_position - hook_pos
-		if velocity.length() < 0.01 or radius.length() < 10: return
-		var angle = acos(clamp(radius.dot(velocity) / (radius.length() * velocity.length()), 0, 1))
-		var rad_vel = cos(angle) * velocity.length()
-		velocity += radius.normalized() * -rad_vel
-		if global_position.distance_to(hook_pos) > current_rope_length:
-			global_position = hook_pos + radius.normalized() * current_rope_length
-		
-		velocity += hook_velocity * (hook_pos - global_position).normalized() * 60000 * delta
 
 func swing(delta):
 	if hook_pos:
@@ -213,7 +191,7 @@ func _input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	if hook_pos:
-		if hooked or zipping:
+		if hooked:
 			draw_line(Vector2(0, -32), to_local(hook_pos), Color.BLACK, 3, true)
 	if draw_swing_air:
 		animation.play("swing_air")
