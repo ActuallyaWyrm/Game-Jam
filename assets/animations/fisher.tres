@@ -68,11 +68,6 @@ animations = [{
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": 1,
-"name": &"midair",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_olrvb")

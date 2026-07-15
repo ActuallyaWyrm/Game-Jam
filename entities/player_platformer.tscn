@@ -2,12 +2,223 @@
 
 [ext_resource type="Script" uid="uid://dxyogxi4modfc" path="res://player_platformer.gd" id="1_tmbtj"]
 [ext_resource type="SpriteFrames" uid="uid://b6lg86ei7t3we" path="res://assets/animations/fisher.tres" id="2_tmbtj"]
-[ext_resource type="PackedScene" uid="uid://d0fndxcwh4wv8" path="res://entities/grapple_platformer.tscn" id="3_sposy"]
+[ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="4_rdmfs"]
 [ext_resource type="Texture2D" uid="uid://ct6ld8sc7cpgo" path="res://assets/sprites/placeholder/box.png" id="4_tmbtj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 26.0
 height = 104.0
+
+[sub_resource type="Animation" id="Animation_rdmfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fall"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(70, -22)]
+}
+
+[sub_resource type="Animation" id="Animation_tmbtj"]
+resource_name = "fall"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1000000, 1000000),
+"update": 0,
+"values": [Vector2(55, -7), Vector2(45, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fall"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_tlmg1"]
+resource_name = "idle"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(75, -27), Vector2(75, -27)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_y88ri"]
+resource_name = "walk"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20172349, 0.4, 0.6),
+"transitions": PackedFloat32Array(1000000, 1000000, 1, 1),
+"update": 0,
+"values": [Vector2(65, -32), Vector2(65, -27), Vector2(65, -32), Vector2(50, -37)]
+}
+
+[sub_resource type="Animation" id="Animation_8b2yr"]
+resource_name = "slide"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"slide"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(75, 13), Vector2(74, 13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdmfs"]
+_data = {
+&"RESET": SubResource("Animation_rdmfs"),
+&"fall": SubResource("Animation_tmbtj"),
+&"idle": SubResource("Animation_tlmg1"),
+&"jump": SubResource("Animation_y88ri"),
+&"slide": SubResource("Animation_8b2yr")
+}
 
 [node name="PlayerPlatformer" type="CharacterBody2D" unique_id=171132049]
 floor_constant_speed = true
@@ -30,16 +241,8 @@ position = Vector2(75, -2.0000002)
 rotation = -0.02617994
 target_position = Vector2(1000, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
-position = Vector2(-3e-45, 5.9604645e-08)
-scale = Vector2(5, 5)
-sprite_frames = ExtResource("2_tmbtj")
-animation = &"walk"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
 shape = SubResource("CapsuleShape2D_g4v7s")
-
-[node name="Chain" parent="." unique_id=866389898 instance=ExtResource("3_sposy")]
 
 [node name="Cursor" type="Sprite2D" parent="." unique_id=873900391]
 texture = ExtResource("4_tmbtj")
@@ -51,3 +254,15 @@ zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=191249747]
+libraries/ = SubResource("AnimationLibrary_rdmfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_tmbtj")
+animation = &"fall"
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1722408786]
+position = Vector2(70, -22)
+script = ExtResource("4_rdmfs")

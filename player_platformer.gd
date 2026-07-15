@@ -2,8 +2,19 @@ extends CharacterBody2D
 
 # movement vars
 
-enum WalkState {STOP, MACH_1, MACH_2, MACH_3, MAX, SLOW}
-var current_state = WalkState.STOP
+enum WalkState {STOP = 0, MACH_1 = 800, MACH_2 = 1600, MACH_3 = 2400, MAX = 3000, SLOW}
+var current_state = WalkState.STOP:
+	set(value):
+		match current_state:
+			WalkState.STOP: next_state = WalkState.MACH_1
+			WalkState.SLOW: next_state = WalkState.MACH_1
+			WalkState.MACH_1: next_state = WalkState.MACH_2
+			WalkState.MACH_2: next_state = WalkState.MACH_3
+			WalkState.MACH_3: next_state = WalkState.MAX
+			WalkState.MAX: next_state = WalkState.MAX
+		current_state = value
+			
+var next_state = WalkState.MACH_1
 var slide_mod = 1.5
 var sliding = false
 var speed = 2000
@@ -16,15 +27,25 @@ var direction:
 	set(value):
 		if value == 0:
 			current_state = WalkState.SLOW
-		else:
+		elif !hooked:
 			match current_state:
-				WalkState.STOP: current_state == WalkState.MACH_1
-				WalkState.SLOW: current_state == WalkState.MACH_1
-				WalkState.MACH_1: current_state == WalkState.MACH_1
-				WalkState.MACH_2: current_state == WalkState.MACH_1
-				WalkState.MACH_3: current_state == WalkState.MACH_2
-				WalkState.MAX: current_state == WalkState.MAX
-		
+				WalkState.STOP:
+					current_state = WalkState.MACH_1
+				WalkState.SLOW:
+					current_state = WalkState.MACH_1
+					next_state = WalkState.MACH_2
+				WalkState.MACH_1:
+					current_state = WalkState.MACH_1
+					next_state = WalkState.MACH_2
+				WalkState.MACH_2:
+					current_state = WalkState.MACH_2
+					next_state = WalkState.MACH_3
+				WalkState.MACH_3:
+					current_state == WalkState.MACH_3
+					next_state == WalkState.MAX
+				WalkState.MAX:
+					current_state == WalkState.MAX
+					next_state == WalkState.MAX
 		direction = value
 var hook_velocity = Vector2()
 var angle = 0
@@ -44,12 +65,19 @@ var hooked = false
 var draw_slide = false
 var draw_jump = false
 var draw_swing_air = false
+
+# onready
+
 @onready var animation = $AnimatedSprite2D
+@onready var full_anim = $AnimationPlayer
 @onready var camera = $Camera2D
+@onready var rope = $Marker2D
 
 # create current rope var
 
 func _ready() -> void:
+	rope.process_mode = Node.PROCESS_MODE_DISABLED
+	rope.hide()
 	current_rope_length = rope_length
 	
 # have physics affect the player
@@ -60,8 +88,13 @@ func gravity():
 	velocity.y += grav
 	
 # basic movement code (run + jump + slide)	
-	
+
 func move(delta):
+	
+	if abs(speed) < abs(next_state) * slide_mod:
+		current_state = next_state
+		if current_state == WalkState.MAX:
+			speed = WalkState.MAX
 	
 	# set slope angle speed modifier
 	
@@ -99,21 +132,19 @@ func move(delta):
 	
 	if is_on_floor():
 		walk_angle = rad_to_deg(get_floor_angle())
-		velocity.y *= vertical_boost
-		vertical_boost = 1
 		if sliding:
 			slide_mod = 1.5
 			camera.global_rotation = 25 * direction
 		else:
 			slide_mod = 1
 			camera.global_rotation = 0
-		velocity.x = float(speed * direction * slide_mod)
+		velocity.x = lerp(velocity.x, next_state * direction * slide_mod, 0.75)
+		print(velocity.x)
 	else:
 		walk_angle = 0
 		velocity.y *= vertical_boost
 		vertical_boost = 1
-		velocity.x = clamp(float(speed * direction), - 2500, 2500)
-		velocity.y = clamp(velocity.y, -jump_height, jump_height)
+		velocity.x = speed * direction
 		camera.global_rotation = 0
 	
 	
@@ -129,6 +160,7 @@ func _physics_process(delta: float) -> void:
 	hook()
 	queue_redraw()
 	if hooked:
+		rope.position = $Marker2D.position * animation.scale / 5
 		gravity()
 		swing(delta)
 	move(delta)
@@ -143,9 +175,11 @@ func hook():
 		hook_pos = get_hook_pos()
 		if hook_pos and !hooked:
 			hooked = true
-			hook_velocity = to_local(hook_pos).normalized() * rope_pull
-			current_rope_length = global_position.distance_to(hook_pos)
+			rope.process_mode = Node.PROCESS_MODE_INHERIT
+			rope.show()
 	if Input.is_action_just_released("grapple"):
+		rope.process_mode = Node.PROCESS_MODE_DISABLED
+		rope.hide()
 		if hook_pos:
 			if hook_pos.y > global_position.y:
 				release_mod = -1
@@ -204,8 +238,8 @@ func _draw() -> void:
 				animation.play("walk")
 				animation.speed_scale = velocity.x / 1000
 			else:
-				animation.play("idle")
-				animation.speed_scale = 0.5
+				full_anim.play("idle")
+				full_anim.speed_scale = 0.5
 		elif draw_slide:
 			animation.play("slide_enter")
 			animation.speed_scale = 2
@@ -216,13 +250,13 @@ func _draw() -> void:
 			animation.speed_scale = 2 * abs(direction)
 			
 	elif draw_jump:
-		animation.play("jump")
-		animation.speed_scale = 2
+		full_anim.play("jump")
+		full_anim.speed_scale = 2
 		await animation.animation_finished
 		draw_jump = false
 	else:
-		animation.play("fall")
-		animation.speed_scale = 1
+		full_anim.play("fall")
+		full_anim.speed_scale = 1
 	if direction > 0:
 		animation.scale.x = 5
 	if direction < 0:
