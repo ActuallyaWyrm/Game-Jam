@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8yeop3x3n0tp"
-path="res://.godot/imported/bar-level-3-pixilart.png-70205e3e282af0acb4c46f326d8b7088.ctex"
+path="res://.godot/imported/bar-level-3-pixilart.png-c89a1a962e9448f5bced9ee77e941db7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bar-level-3-pixilart.png"
-dest_files=["res://.godot/imported/bar-level-3-pixilart.png-70205e3e282af0acb4c46f326d8b7088.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/bar-level-3-pixilart.png"
+dest_files=["res://.godot/imported/bar-level-3-pixilart.png-c89a1a962e9448f5bced9ee77e941db7.ctex"]
 
 [params]
 

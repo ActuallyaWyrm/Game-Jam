@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7x3ctuutwn64"
-path="res://.godot/imported/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg-aae4f5996bb08c12ee0660f770fc2670.ctex"
+uid="uid://cic58xcjs7bf0"
+path="res://.godot/imported/alley-level-3-pixilart.png-7776a2abf8e72b9b6649821aa05e2dd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg"
-dest_files=["res://.godot/imported/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg-aae4f5996bb08c12ee0660f770fc2670.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/alley-level-3-pixilart.png"
+dest_files=["res://.godot/imported/alley-level-3-pixilart.png-7776a2abf8e72b9b6649821aa05e2dd6.ctex"]
 
 [params]
 

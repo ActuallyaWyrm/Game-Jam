@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://diidsrqqtg335"]
 
-[ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/alley-level-1-2-pixilart.png" id="1_3hdrw"]
-[ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/bar-level-pixilart (4).png" id="1_o3afp"]
-[ext_resource type="Texture2D" uid="uid://c53xcvei8a8f2" path="res://assets/alley-level-1-2-pixilart (3).png" id="2_4wc1s"]
-[ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/bar-level-3-pixilart (1).png" id="2_441wl"]
+[ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/sprites/HackNSlash Assets/alley-level-1-2-pixilart.png" id="1_3hdrw"]
+[ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/sprites/HackNSlash Assets/bar-level-pixilart (4).png" id="1_o3afp"]
+[ext_resource type="Texture2D" uid="uid://c53xcvei8a8f2" path="res://assets/sprites/HackNSlash Assets/alley-level-1-2-pixilart (3).png" id="2_4wc1s"]
+[ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/sprites/HackNSlash Assets/bar-level-3-pixilart (1).png" id="2_441wl"]
 [ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="4_buh41"]
-[ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/alley-level-holder1-pixilart.png" id="4_ftj4b"]
-[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/fisherman fighter.png" id="4_olhsv"]
-[ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="5_buh41"]
+[ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_ftj4b"]
+[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/fisherman fighter.png" id="4_olhsv"]
+[ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="5_buh41"]
 [ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="7_51mk3"]
-[ext_resource type="Texture2D" uid="uid://cic58xcjs7bf0" path="res://assets/alley-level-3-pixilart.png" id="9_ftj4b"]
+[ext_resource type="Texture2D" uid="uid://cic58xcjs7bf0" path="res://assets/sprites/HackNSlash Assets/alley-level-3-pixilart.png" id="9_ftj4b"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ekcmj"]
 a = Vector2(8936.998, 255.99994)
@@ -74,6 +74,8 @@ texture = ExtResource("9_ftj4b")
 [node name="AlleyLevelHolder1Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1969598561]
 position = Vector2(2500, 0)
 texture = ExtResource("4_ftj4b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 

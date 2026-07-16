@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://11ltqu53qe8x"
-path="res://.godot/imported/fisherman fighter.png-a49e141ca5b3440445fb5acb490e85b6.ctex"
+uid="uid://hv73cslbq4ke"
+path="res://.godot/imported/fodder walk.png-cfa833ee5dec5168b43d3bc813e18705.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fisherman fighter.png"
-dest_files=["res://.godot/imported/fisherman fighter.png-a49e141ca5b3440445fb5acb490e85b6.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/fodder walk.png"
+dest_files=["res://.godot/imported/fodder walk.png-cfa833ee5dec5168b43d3bc813e18705.ctex"]
 
 [params]
 
