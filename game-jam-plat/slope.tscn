@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cydrgwoffh4hl"]
+
+[ext_resource type="Texture2D" uid="uid://cp4rty5quyv7k" path="res://New Piskel.png" id="1_iwyfe"]
+
+[node name="slope" type="Node2D" unique_id=551720810]
+
+[node name="NewPiskel" type="Sprite2D" parent="." unique_id=1283537921]
+position = Vector2(-0.5000076, -9.999996)
+scale = Vector2(7.1562505, 4.7500005)
+texture = ExtResource("1_iwyfe")
+
+[node name="RigidBody2D" type="StaticBody2D" parent="NewPiskel" unique_id=1120782032]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NewPiskel/RigidBody2D" unique_id=1803438911]
+scale = Vector2(1.0000002, 1)
+polygon = PackedVector2Array(-16.000002, 6.43299, -7.6190486, 6.43299, 2.5396824, 4.1237116, 4.31746, 2.14433, 7.1111116, -1.8144331, 9.396825, -5.773196, 9.904761, -10.061856, 10.1587305, -16, 22.349209, -16, 22.603176, 15.340207, -15.492064, 15.670104)

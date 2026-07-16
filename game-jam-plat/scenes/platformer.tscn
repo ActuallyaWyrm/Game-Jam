@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b5myhbv8ntedf"]
+
+[ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
+[ext_resource type="PackedScene" uid="uid://cydrgwoffh4hl" path="res://slope.tscn" id="3_85uu4"]
+
+[node name="Platformer" type="Node2D" unique_id=1169925800]
+
+[node name="Grabables" type="Node2D" parent="." unique_id=2115641317]
+position = Vector2(1108, 46)
+
+[node name="Grabable4" parent="Grabables" unique_id=1794959916 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1704.9873, -1762.9312)
+rotation = -3.1415927
+scale = Vector2(1.1294281, -0.95917445)
+
+[node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
+position = Vector2(1387, -403)
+scale = Vector2(0.36880434, 0.9487343)
+
+[node name="Grabable8" parent="Grabables" unique_id=1320924399 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1471, 1376)
+scale = Vector2(8.275414, 1.8851271)
+
+[node name="Grabable6" parent="Grabables" unique_id=1078555241 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1084, 493)
+rotation = -3.1415927
+scale = Vector2(1.9418354, 1.3729993)
+
+[node name="Grabable3" parent="Grabables" unique_id=1347234046 instance=ExtResource("1_j2uy2")]
+position = Vector2(-4855, -1270)
+rotation = 0.27640325
+scale = Vector2(3.6241632, -1.2321057)
+skew = 0.010795832
+
+[node name="Grabable2" parent="Grabables" unique_id=645432284 instance=ExtResource("1_j2uy2")]
+position = Vector2(188.00006, -1241.0001)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable5" parent="Grabables" unique_id=527215459 instance=ExtResource("1_j2uy2")]
+position = Vector2(-2127, 343)
+rotation = 0.016397357
+scale = Vector2(0.49679872, 0.94207835)
+skew = 0.32362187
+
+[node name="Grabable" parent="Grabables" unique_id=1187165573 instance=ExtResource("1_j2uy2")]
+position = Vector2(284.99997, 195)
+rotation = -0.46641505
+scale = Vector2(0.66612923, 1)
+
+[node name="PlayerPlatformer" parent="." unique_id=171132049 instance=ExtResource("1_xxtnn")]
+position = Vector2(-2928, -42)
+floor_stop_on_slope = false
+floor_max_angle = 1.4835298
+
+[node name="slope2" parent="." unique_id=551720810 instance=ExtResource("3_85uu4")]
+position = Vector2(-1936, 850)
+scale = Vector2(-11.337565, 8.9353)
+
+[node name="slope" parent="." unique_id=8897053 instance=ExtResource("3_85uu4")]
+position = Vector2(1865.0001, 1137)
+scale = Vector2(10.0586195, 3.9276)
