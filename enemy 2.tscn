@@ -10,6 +10,11 @@ radius = 22.022715
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1885662057]
 script = ExtResource("1_q0xb5")
+cooldown = {
+"current": 0,
+"reset": 60
+}
+damage = 10.0
 SPEED = 300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=673180670]

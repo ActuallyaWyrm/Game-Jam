@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="7_51mk3"]
 [ext_resource type="Texture2D" uid="uid://cic58xcjs7bf0" path="res://assets/sprites/HackNSlash Assets/alley-level-3-pixilart.png" id="9_ftj4b"]
 [ext_resource type="PackedScene" uid="uid://d3tn85j620spl" path="res://enemy.tscn" id="11_ymiah"]
+[ext_resource type="PackedScene" uid="uid://dxuu2wgn3pe30" path="res://enemy 2.tscn" id="12_v4267"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ekcmj"]
 a = Vector2(8936.998, 255.99994)
@@ -120,8 +121,8 @@ shape = SubResource("SegmentShape2D_l8aqi")
 position = Vector2(300, 0)
 shape = SubResource("SegmentShape2D_ng5t8")
 
-[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871]
-position = Vector2(286.99997, 470)
+[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871 groups=["Player"]]
+position = Vector2(1033, 1251.0001)
 scale = Vector2(2.55, 2.55)
 collision_layer = 3
 script = ExtResource("4_buh41")
@@ -146,4 +147,8 @@ scale = Vector2(1.0000002, 1.5709033)
 texture = ExtResource("5_buh41")
 
 [node name="Node2D" parent="." unique_id=1885662057 instance=ExtResource("11_ymiah")]
-position = Vector2(1398, 499)
+position = Vector2(3249, 510)
+
+[node name="Node2D2" parent="." unique_id=1215393920 instance=ExtResource("12_v4267")]
+position = Vector2(2076, 485)
+scale = Vector2(1.3617584, 1.6156653)
