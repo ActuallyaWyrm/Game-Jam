@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health = 100
 
 const SPEED = 300.0
 
