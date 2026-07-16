@@ -1,40 +1,29 @@
 [gd_scene format=3 uid="uid://oy67rn0cumj3"]
 
+[ext_resource type="SpriteFrames" uid="uid://cwcpt3gfwa0mr" path="res://assets/animations/placeholder.tres" id="1_merdl"]
 [ext_resource type="Script" uid="uid://dxyogxi4modfc" path="res://player_platformer.gd" id="1_tmbtj"]
-[ext_resource type="SpriteFrames" uid="uid://b6lg86ei7t3we" path="res://assets/animations/fisher.tres" id="2_tmbtj"]
 [ext_resource type="PackedScene" uid="uid://d0fndxcwh4wv8" path="res://entities/grapple_platformer.tscn" id="3_sposy"]
 [ext_resource type="Texture2D" uid="uid://ct6ld8sc7cpgo" path="res://assets/sprites/placeholder/box.png" id="4_tmbtj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-radius = 26.0
-height = 104.0
+radius = 40.0
+height = 80.0
 
 [node name="PlayerPlatformer" type="CharacterBody2D" unique_id=171132049]
-floor_constant_speed = true
-floor_snap_length = 10.5
+floor_snap_length = 22.6
 script = ExtResource("1_tmbtj")
 
 [node name="RayCast" type="Node2D" parent="." unique_id=1275242618]
 
-[node name="RayCast2D2" type="RayCast2D" parent="RayCast" unique_id=1368459922]
-position = Vector2(75, 7.6293945e-06)
-target_position = Vector2(1000, 0)
-
-[node name="RayCast2D3" type="RayCast2D" parent="RayCast" unique_id=808349063]
-position = Vector2(75, 2.0000007)
-rotation = 0.02617994
-target_position = Vector2(1000, 0)
-
 [node name="RayCast2D" type="RayCast2D" parent="RayCast" unique_id=1950441280]
-position = Vector2(75, -2.0000002)
-rotation = -0.02617994
+position = Vector2(75, -0.9999962)
 target_position = Vector2(1000, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
-position = Vector2(-3e-45, 5.9604645e-08)
-scale = Vector2(5, 5)
-sprite_frames = ExtResource("2_tmbtj")
-animation = &"walk"
+position = Vector2(-1.4210855e-14, 1.1920929e-07)
+scale = Vector2(0.15369293, 0.15369289)
+sprite_frames = ExtResource("1_merdl")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
 shape = SubResource("CapsuleShape2D_g4v7s")
@@ -45,9 +34,8 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 texture = ExtResource("4_tmbtj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2054317689]
-position = Vector2(0, 51)
 ignore_rotation = false
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(0.65, 0.65)
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 10.0
