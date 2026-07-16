@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://11ltqu53qe8x"
-path="res://.godot/imported/fisherman fighter.png-8fd336eddee8a8cddea1d04c10ecf5a6.ctex"
+uid="uid://dw0p3vk23hdm5"
+path="res://.godot/imported/AlleySec3.png-17215a1a86a030df8b92f584257e096f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HackNSlash Assets/fisherman fighter.png"
-dest_files=["res://.godot/imported/fisherman fighter.png-8fd336eddee8a8cddea1d04c10ecf5a6.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/AlleySec3.png"
+dest_files=["res://.godot/imported/AlleySec3.png-17215a1a86a030df8b92f584257e096f.ctex"]
 
 [params]
 
