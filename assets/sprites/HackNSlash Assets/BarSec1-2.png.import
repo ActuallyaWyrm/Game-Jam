@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw4ns4ab5ht56"
-path="res://.godot/imported/alley-level-1-2-pixilart.png-5bec4964070245bbf94f5a8075d42267.ctex"
+uid="uid://ckpvq2w267j3x"
+path="res://.godot/imported/BarSec1-2.png-1cef6861fb410d403ab296dc877055e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HackNSlash Assets/alley-level-1-2-pixilart.png"
-dest_files=["res://.godot/imported/alley-level-1-2-pixilart.png-5bec4964070245bbf94f5a8075d42267.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/BarSec1-2.png"
+dest_files=["res://.godot/imported/BarSec1-2.png-1cef6861fb410d403ab296dc877055e2.ctex"]
 
 [params]
 
