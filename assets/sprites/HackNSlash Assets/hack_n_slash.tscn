@@ -122,7 +122,7 @@ position = Vector2(300, 0)
 shape = SubResource("SegmentShape2D_ng5t8")
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871 groups=["Player"]]
-position = Vector2(1033, 1251.0001)
+position = Vector2(273.99994, 493.99994)
 scale = Vector2(2.55, 2.55)
 collision_layer = 3
 script = ExtResource("4_buh41")
