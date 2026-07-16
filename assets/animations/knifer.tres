@@ -1,3 +1,166 @@
+<<<<<<< Updated upstream
 [gd_resource type="SpriteFrames" format=3 uid="uid://b0wklv414vjl"]
 
 [resource]
+=======
+[gd_resource type="SpriteFrames" format=3 uid="uid://baik4q4nb0bit"]
+
+[ext_resource type="Texture2D" uid="uid://d3yv01or4yq4b" path="res://assets/animations/knifer dash.png" id="1_icjx2"]
+[ext_resource type="Texture2D" uid="uid://dg5dsnon6yg5t" path="res://assets/animations/knifer death.png" id="2_1xckk"]
+[ext_resource type="Texture2D" uid="uid://dl2anliouotv7" path="res://assets/animations/knifer hit by fisherman.png" id="3_gla1c"]
+[ext_resource type="Texture2D" uid="uid://cy2avwsqjd3hn" path="res://assets/animations/knifer slash slash.png" id="4_rfnw0"]
+[ext_resource type="Texture2D" uid="uid://83lp1pkc1nm7" path="res://assets/animations/knifer1.png" id="5_6xatf"]
+[ext_resource type="Texture2D" uid="uid://bvrtatnqv70lt" path="res://assets/animations/knifer2.png" id="6_7upcx"]
+[ext_resource type="Texture2D" uid="uid://bshfjtef4p55c" path="res://assets/animations/knifer3.png" id="7_svxps"]
+[ext_resource type="Texture2D" uid="uid://cc1r6bdp3l7sp" path="res://assets/animations/knifer4.png" id="8_od4fi"]
+[ext_resource type="Texture2D" uid="uid://c4a6hffxpyqxq" path="res://assets/animations/knifer5.png" id="9_6npg0"]
+[ext_resource type="Texture2D" uid="uid://d4d1j4fp4gftm" path="res://assets/animations/knifer6.png" id="10_plkij"]
+[ext_resource type="Texture2D" uid="uid://bjwtpxyms05gw" path="res://assets/animations/knifer7.png" id="11_vjh71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6nqy"]
+atlas = ExtResource("1_icjx2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln4yc"]
+atlas = ExtResource("1_icjx2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj136"]
+atlas = ExtResource("1_icjx2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cxj6"]
+atlas = ExtResource("2_1xckk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygelx"]
+atlas = ExtResource("2_1xckk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tytt6"]
+atlas = ExtResource("2_1xckk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6obor"]
+atlas = ExtResource("2_1xckk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1547"]
+atlas = ExtResource("3_gla1c")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svnlb"]
+atlas = ExtResource("3_gla1c")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwb1x"]
+atlas = ExtResource("3_gla1c")
+region = Rect2(0, 80, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11rtm"]
+atlas = ExtResource("4_rfnw0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrbxp"]
+atlas = ExtResource("4_rfnw0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ft6"]
+atlas = ExtResource("4_rfnw0")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkc5d"]
+atlas = ExtResource("4_rfnw0")
+region = Rect2(64, 64, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6nqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln4yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj136")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cxj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygelx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tytt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6obor")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1547")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svnlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwb1x")
+}],
+"loop": 1,
+"name": &"gethit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11rtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrbxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34ft6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkc5d")
+}],
+"loop": 1,
+"name": &"slash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6xatf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7upcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_svxps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_od4fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6npg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_plkij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vjh71")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 7.0
+}]
+>>>>>>> Stashed changes

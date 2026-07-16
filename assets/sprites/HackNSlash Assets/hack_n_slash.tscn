@@ -1,15 +1,30 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://diidsrqqtg335"]
 
-[ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/sprites/HackNSlash Assets/alley-level-1-2-pixilart.png" id="1_3hdrw"]
-[ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/sprites/HackNSlash Assets/bar-level-pixilart (4).png" id="1_o3afp"]
-[ext_resource type="Texture2D" uid="uid://c53xcvei8a8f2" path="res://assets/sprites/HackNSlash Assets/alley-level-1-2-pixilart (3).png" id="2_4wc1s"]
-[ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/sprites/HackNSlash Assets/bar-level-3-pixilart (1).png" id="2_441wl"]
-[ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="4_buh41"]
-[ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_ftj4b"]
-[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/fisherman fighter.png" id="4_olhsv"]
-[ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="5_buh41"]
-[ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="7_51mk3"]
-[ext_resource type="Texture2D" uid="uid://cic58xcjs7bf0" path="res://assets/sprites/HackNSlash Assets/alley-level-3-pixilart.png" id="9_ftj4b"]
+[ext_resource type="Texture2D" uid="uid://cw4ns4ab5ht56" path="res://assets/sprites/HackNSlash Assets/AlleySec1-2.png" id="1_u21x7"]
+[ext_resource type="Texture2D" uid="uid://bko4uf2vfmv0p" path="res://assets/sprites/HackNSlash Assets/AlleyCatBar.png" id="2_guwpv"]
+[ext_resource type="Texture2D" uid="uid://dw0p3vk23hdm5" path="res://assets/sprites/HackNSlash Assets/AlleySec3.png" id="3_r6hiy"]
+[ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_w5ys8"]
+[ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/sprites/HackNSlash Assets/BarSec1-2.png" id="5_0wegr"]
+[ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/sprites/HackNSlash Assets/BarSec3.png" id="6_q7elh"]
+[ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="7_xlsp5"]
+[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="8_2ph6w"]
+[ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="9_0ikef"]
+[ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="10_xuqdi"]
+=======
+[gd_scene format=3 uid="uid://hhmnhfmw8d2d"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/AlleySec1-2.png" id="1_u21x7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/AlleyCatBar.png" id="2_guwpv"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/AlleySec3.png" id="3_r6hiy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_w5ys8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/BarSec1-2.png" id="5_0wegr"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/BarSec3.png" id="6_q7elh"]
+[ext_resource type="Script" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="7_xlsp5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="8_2ph6w"]
+[ext_resource type="Script" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="9_0ikef"]
+[ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="10_xuqdi"]
+>>>>>>> Stashed changes
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ekcmj"]
 a = Vector2(8936.998, 255.99994)
@@ -31,7 +46,7 @@ a = Vector2(1937.9998, 261)
 b = Vector2(1809.9998, 305)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekcmj"]
-radius = 7.8431854
+radius = 9.705894
 height = 54.117615
 
 [node name="HackNSlash" type="Node2D" unique_id=203919341]
@@ -41,7 +56,7 @@ height = 54.117615
 [node name="AlleyLevel12Pixilart" type="Sprite2D" parent="AlleyLevel" unique_id=885389134]
 position = Vector2(1277, 330)
 scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_3hdrw")
+texture = ExtResource("1_u21x7")
 
 [node name="EnviroHitboxesAlley" type="StaticBody2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1146209461]
 position = Vector2(-489.41177, -128.62746)
@@ -63,31 +78,37 @@ shape = SubResource("SegmentShape2D_xy1b7")
 
 [node name="AlleyLevel12Pixilart(3)" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1331802087]
 position = Vector2(1500, 0)
-scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("2_4wc1s")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_guwpv")
 
 [node name="AlleyLevel3Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1423367927]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("9_ftj4b")
+texture = ExtResource("3_r6hiy")
 
 [node name="AlleyLevelHolder1Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1969598561]
 position = Vector2(2500, 0)
-texture = ExtResource("4_ftj4b")
+texture = ExtResource("4_w5ys8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
+position = Vector2(1388, -441)
+<<<<<<< Updated upstream
+animation = &"idle"
+=======
+animation = &""
+>>>>>>> Stashed changes
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 
 [node name="BarEnviroArt1" type="Sprite2D" parent="BarLevel" unique_id=1949093678]
 position = Vector2(1278, 1125)
 scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_o3afp")
+texture = ExtResource("5_0wegr")
 
 [node name="BarEnviroEndish2" type="Sprite2D" parent="BarLevel/BarEnviroArt1" unique_id=1767906794]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("2_441wl")
+texture = ExtResource("6_q7elh")
 
 [node name="EnviroHitboxesBar" type="StaticBody2D" parent="BarLevel/BarEnviroArt1" unique_id=166547320]
 position = Vector2(-503.52942, -130.19608)
@@ -122,11 +143,11 @@ shape = SubResource("SegmentShape2D_ng5t8")
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871]
 position = Vector2(286.99997, 470)
 scale = Vector2(2.55, 2.55)
-script = ExtResource("4_buh41")
+script = ExtResource("7_xlsp5")
 
 [node name="FishermanStatic" type="Sprite2D" parent="Fisherman" unique_id=1090419074]
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("4_olhsv")
+texture = ExtResource("8_2ph6w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=2132072107]
 position = Vector2(-5, 0)
@@ -135,10 +156,10 @@ shape = SubResource("CapsuleShape2D_ekcmj")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243 node_paths=PackedStringArray("fm")]
 position = Vector2(292, 330)
 scale = Vector2(2.55, 2.55)
-script = ExtResource("7_51mk3")
+script = ExtResource("9_0ikef")
 fm = NodePath("../Fisherman")
 
 [node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
 z_index = -1
 scale = Vector2(1.0000002, 1.5709033)
-texture = ExtResource("5_buh41")
+texture = ExtResource("10_xuqdi")
