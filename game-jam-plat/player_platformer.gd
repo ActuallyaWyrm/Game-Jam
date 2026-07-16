@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 # movement vars
 
+var max_mod = 1
 var slide_mod = 1.5
-var friction = 1.01
+var friction = 1.5
 var sliding = false
 var speed = 0
 var pos_ = 0
@@ -21,8 +22,6 @@ var dirdir
 #		if acc_stage > 0 and !hooked or
 var slope_angle
 var slope_mod = 0
-			
-		
 var hook_velocity = Vector2()
 var angle = 0
 var walk_angle = 0
@@ -53,8 +52,6 @@ func _ready() -> void:
 # have physics affect the player
 	
 func gravity():
-	if hooked:
-		velocity.y += grav * 3
 	velocity.y += grav
 	
 # basic movement code (run + jump + slide)	
@@ -63,12 +60,10 @@ func move(delta):
 	
 	# set slope angle speed modifier
 	
-	var max_mod
-	
 	if (walk_angle == 180) or (walk_angle == 0):
 		max_mod = 0
 	else:
-		max_mod = 1000 + abs(walk_angle)
+		max_mod = 100 * abs(walk_angle)
 	
 	# jump
 	
@@ -116,8 +111,8 @@ func move(delta):
 		
 		if direction == 1:
 			if pos_ == 0:
-				pos_ += direction
-			if pos_ > 0 and pos_ <= 2000:
+				pos_ += direction * 100
+			if pos_ > 0 and pos_ <= 2500:
 				pos_ *= 1.1
 			neg_ /= 1.1
 			if neg_ >= -5:
@@ -125,8 +120,8 @@ func move(delta):
 		
 		if direction == -1:
 			if neg_ == 0:
-				neg_ += direction
-			if neg_ < 0 and neg_ >= -2000:
+				neg_ += direction * 100
+			if neg_ < 0 and neg_ >= -2500:
 				neg_ *= 1.1
 			pos_ /= 1.1
 			if pos_ <= 5:
@@ -137,7 +132,9 @@ func move(delta):
 		
 		if direction == 0:
 			neg_ /= friction
+			neg_ = ceil(neg_)
 			pos_ /= friction
+			pos_ = floor(pos_)
 			
 		
 		speed = pos_ + neg_
@@ -184,7 +181,10 @@ func _physics_process(delta: float) -> void:
 		zip(delta)
 	move(delta)
 	#_is_sliding()
-	velocity.x = speed + slope_mod
+	if direction != 0:
+		velocity.x = (abs(speed) + abs(max_mod)) * direction
+	else:
+		velocity.x = speed
 	move_and_slide()
 
 # handle grapple input

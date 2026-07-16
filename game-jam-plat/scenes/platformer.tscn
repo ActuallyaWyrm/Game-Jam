@@ -38,12 +38,6 @@ position = Vector2(188.00006, -1241.0001)
 rotation = -3.1415927
 scale = Vector2(1.4010304, 1.3729993)
 
-[node name="Grabable5" parent="Grabables" unique_id=527215459 instance=ExtResource("1_j2uy2")]
-position = Vector2(-2127, 343)
-rotation = 0.016397357
-scale = Vector2(0.49679872, 0.94207835)
-skew = 0.32362187
-
 [node name="Grabable" parent="Grabables" unique_id=1187165573 instance=ExtResource("1_j2uy2")]
 position = Vector2(284.99997, 195)
 rotation = -0.46641505
