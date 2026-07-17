@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 			for i in in_range:
 				i.enhealth -= damage
 				cooldown["current"] = cooldown["reset"]
-				i.cooldown["current"] = i.cooldown["reset"]
 				i.checkifdead()
 
 # Add / remove enemy from range

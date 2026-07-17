@@ -11,14 +11,16 @@ height = 54.117615
 size = Vector2(30, 30)
 
 [node name="Fisherman" type="CharacterBody2D" unique_id=598755402 groups=["Player"]]
+collision_layer = 3
 script = ExtResource("1_wpf0k")
 
 [node name="FishermanStatic" type="Sprite2D" parent="." unique_id=515575837]
-scale = Vector2(1.0000001, 1.0000001)
+scale = Vector2(2.55, 2.55)
 texture = ExtResource("1_s1b1d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435010979]
 position = Vector2(-5, 0)
+scale = Vector2(2.55, 2.55)
 shape = SubResource("CapsuleShape2D_wpf0k")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2114707097]
@@ -27,6 +29,8 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=329415298]
+position = Vector2(40, 0)
+scale = Vector2(2.55, 2.55)
 shape = SubResource("RectangleShape2D_wpf0k")
 debug_color = Color(0.9889869, 0, 0.30104727, 0.41960785)
 
