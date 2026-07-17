@@ -30,7 +30,6 @@ position = Vector2(75, -2.0000002)
 rotation = -0.02617994
 target_position = Vector2(1000, 0)
 
-<<<<<<< HEAD:game-jam-plat/entities/player_platformer.tscn
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
 position = Vector2(-3.0092655e-36, 0)
 scale = Vector2(5, 5)
@@ -38,9 +37,6 @@ sprite_frames = ExtResource("2_tmbtj")
 animation = &"swing_air"
 frame = 6
 frame_progress = 1.0
-=======
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=396807885]
->>>>>>> main:entities/player_platformer.tscn
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
 shape = SubResource("CapsuleShape2D_g4v7s")
