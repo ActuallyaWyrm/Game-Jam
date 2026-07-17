@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
 [ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
 [ext_resource type="PackedScene" uid="uid://cydrgwoffh4hl" path="res://slope.tscn" id="3_85uu4"]
+[ext_resource type="Texture2D" uid="uid://c5eol8cuuevqm" path="res://assets/sprites/environment/bg_layer_1.png" id="4_xlal6"]
+[ext_resource type="Texture2D" uid="uid://dhwfwptfujfhh" path="res://assets/sprites/environment/bg_layer_2.png" id="5_qcnyv"]
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
@@ -55,3 +57,25 @@ scale = Vector2(-11.337565, 8.9353)
 [node name="slope" parent="." unique_id=8897053 instance=ExtResource("3_85uu4")]
 position = Vector2(1865.0001, 1137)
 scale = Vector2(10.0586195, 3.9276)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1194881441]
+z_index = -9
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-961, 196)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1700703590]
+scale = Vector2(7, 7)
+texture = ExtResource("4_xlal6")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=483967667]
+z_index = -8
+scroll_scale = Vector2(0.2, 0)
+scroll_offset = Vector2(-961, 196)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=388944758]
+scale = Vector2(7, 7)
+texture = ExtResource("5_qcnyv")
