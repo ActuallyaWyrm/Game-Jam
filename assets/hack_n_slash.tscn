@@ -18,6 +18,8 @@ b = Vector2(33, 258)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xy1b7"]
 b = Vector2(-5, 624)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u21x7"]
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_pr82s"]
 a = Vector2(1504.9998, 299)
 b = Vector2(1388.9998, 251)
@@ -77,7 +79,7 @@ texture = ExtResource("4_w5ys8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
 position = Vector2(1388, -441)
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_u21x7")
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 
