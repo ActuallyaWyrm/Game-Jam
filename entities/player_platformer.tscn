@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://oy67rn0cumj3"]
 
-[ext_resource type="SpriteFrames" uid="uid://cwcpt3gfwa0mr" path="res://assets/animations/placeholder.tres" id="1_merdl"]
 [ext_resource type="Script" uid="uid://dxyogxi4modfc" path="res://player_platformer.gd" id="1_tmbtj"]
 [ext_resource type="PackedScene" uid="uid://d0fndxcwh4wv8" path="res://entities/grapple_platformer.tscn" id="3_sposy"]
 [ext_resource type="Texture2D" uid="uid://ct6ld8sc7cpgo" path="res://assets/sprites/placeholder/box.png" id="4_tmbtj"]
@@ -19,11 +18,7 @@ script = ExtResource("1_tmbtj")
 position = Vector2(75, -0.9999962)
 target_position = Vector2(1000, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1315309792]
-position = Vector2(-1.4210855e-14, 1.1920929e-07)
-scale = Vector2(0.15369293, 0.15369289)
-sprite_frames = ExtResource("1_merdl")
-animation = &"idle"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=396807885]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286970092]
 shape = SubResource("CapsuleShape2D_g4v7s")
