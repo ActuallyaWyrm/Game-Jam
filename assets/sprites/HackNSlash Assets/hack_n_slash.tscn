@@ -129,6 +129,10 @@ position = Vector2(273.99994, 493.99994)
 scale = Vector2(2.55, 2.55)
 collision_layer = 3
 script = ExtResource("4_buh41")
+cooldown = {
+"current": 0,
+"reset": 35
+}
 
 [node name="FishermanStatic" type="Sprite2D" parent="Fisherman" unique_id=1090419074]
 scale = Vector2(1.0000001, 1.0000001)
