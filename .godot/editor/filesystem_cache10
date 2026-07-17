@@ -1,0 +1,35 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1784294305
+icon.svg::CompressedTexture2D::2422543624120626462::1784294171::1784294211::1::::<><><>0<>0<>f07825c0a0b0da6ed0b55b8dc649a8c6<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+player_platformer.gd::GDScript::8824012495243348360::1784294171::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://assets/::1784294291
+hack_n_slash.tscn::PackedScene::7737503035851077414::1784294291::0::1::::<><><>0<>0<><>::uid://cw4ns4ab5ht56::::res://assets/sprites/HackNSlash Assets/AlleySec1-2.png<>uid://bko4uf2vfmv0p::::res://assets/sprites/HackNSlash Assets/AlleyCatBar.png<>uid://dw0p3vk23hdm5::::res://assets/sprites/HackNSlash Assets/AlleySec3.png<>uid://hs0ulrk6s4lo::::res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png<>uid://ckpvq2w267j3x::::res://assets/sprites/HackNSlash Assets/BarSec1-2.png<>uid://n8su34qoo85m::::res://assets/sprites/HackNSlash Assets/BarSec3.png<>uid://c1vxhl6dp8c1c::::res://assets/sprites/HackNSlash Assets/fishermovedemo.gd<>uid://11ltqu53qe8x::::res://assets/sprites/HackNSlash Assets/FishermanStatic.png<>uid://insvtsbasgvc::::res://assets/sprites/HackNSlash Assets/CameraFollow.gd<>uid://c7x3ctuutwn64::::res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg
+::res://assets/animations/::1784294291
+placeholder.tres::SpriteFrames::6322070848085960461::1784294291::0::1::::<><><>0<>0<><>::uid://dub0mvsikopj1::::res://assets/sprites/placeholder/placeholder.png
+::res://assets/sprites/::1784294171
+::res://assets/sprites/HackNSlash Assets/::1784294212
+alley-level-holder1-pixilart.png::CompressedTexture2D::530034950251610872::1784294171::1784294212::1::::<><><>0<>0<>e41617f830751bee6e697b54f63ba7c3<>res://.godot/imported/alley-level-holder1-pixilart.png-cb9614c0239bfa89cc3439d1d51d8d65.ctex::
+AlleyCatBar.png::CompressedTexture2D::3119007222586379461::1784294171::1784294212::1::::<><><>0<>0<>f8de0d7b6ecfff6b5ac0cb6ee1efa6a7<>res://.godot/imported/AlleyCatBar.png-06db35a03b5197a14e21005197d99346.ctex::
+AlleySec1-2.png::CompressedTexture2D::6377685870749878047::1784294171::1784294212::1::::<><><>0<>0<>32110bc98ed05f4c1de970213143669d<>res://.godot/imported/AlleySec1-2.png-d132d65b391a29855b79719f1a58257e.ctex::
+AlleySec3.png::CompressedTexture2D::8755987931791194138::1784294171::1784294211::1::::<><><>0<>0<>69ac8deb7824204bace5e6c0690fda08<>res://.godot/imported/AlleySec3.png-17215a1a86a030df8b92f584257e096f.ctex::
+BarSec1-2.png::CompressedTexture2D::5507000553013599683::1784294171::1784294212::1::::<><><>0<>0<>7d01b20c176b3dd1e1341d48a7c470e1<>res://.godot/imported/BarSec1-2.png-1cef6861fb410d403ab296dc877055e2.ctex::
+BarSec3.png::CompressedTexture2D::981709571125684892::1784294171::1784294211::1::::<><><>0<>0<>6d1a160849917f433af8c5c7c760cea6<>res://.godot/imported/BarSec3.png-a193fda8bd9509c906b177370a913a5b.ctex::
+CameraFollow.gd::GDScript::589479093245118100::1784294171::0::1::::<>Camera2D<><>0<>0<><>::
+FishermanStatic.png::CompressedTexture2D::1879286445869825673::1784294171::1784294211::1::::<><><>0<>0<>f5e93ac5331a36f1f20cbb0d681bc803<>res://.godot/imported/FishermanStatic.png-1e5fd4a13bf0356f51257c107e3c2b89.ctex::
+fishermovedemo.gd::GDScript::6642512852004702358::1784294171::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Screenshot_15-7-2026_133038_www.pixilart.com.jpeg::CompressedTexture2D::7068069729306604751::1784294171::1784294212::1::::<><><>0<>0<>77c4adb0b0502f9136411506194b3f33<>res://.godot/imported/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg-c6845d9e2df4408e245598eb0f9021f8.ctex::
+::res://assets/sprites/placeholder/::1784294291
+box.png::CompressedTexture2D::6171100112397580262::1784294171::1784294211::1::::<><><>0<>0<>c0e95fc8792fc8739f63401bb7e3d28a<>res://.godot/imported/box.png-aa7c063a070108403c1728601ae7a3e2.ctex::
+placeholder.png::CompressedTexture2D::8566643787114278168::1784294171::1784294212::1::::<><><>0<>0<>c022658f6b77ca7be4875341ceb349ee<>res://.godot/imported/placeholder.png-1decd3549c0b12d3c13178c4851b4857.ctex::
+::res://autoload/::1784294171
+launch.gd::GDScript::5252665409942304378::1784294171::0::1::::<>Node2D<><>0<>0<><>::
+::res://entities/::1784294171
+chain_platformer.gd::GDScript::3247849406259622896::1784294171::0::1::::<>RefCounted<><>0<>0<><>::
+grapple_platformer.tscn::PackedScene::8925100921224852187::1784294171::0::1::::<><><>0<>0<><>::
+player_platformer.tscn::PackedScene::1034129163329373470::1784294171::0::1::::<><><>0<>0<><>::uid://cwcpt3gfwa0mr::::res://assets/animations/placeholder.tres<>uid://dxyogxi4modfc::::res://player_platformer.gd<>uid://d0fndxcwh4wv8::::res://entities/grapple_platformer.tscn<>uid://ct6ld8sc7cpgo::::res://assets/sprites/placeholder/box.png
+target_platformer.gd::GDScript::6569347801840862317::1784294171::0::1::::<>RefCounted<><>0<>0<><>::
+target_platformer.tscn::PackedScene::8373613606054211158::1784294171::0::1::::<><><>0<>0<><>::uid://ct6ld8sc7cpgo::::res://assets/sprites/placeholder/box.png
+::res://game-jam-plat/::1784294170
+::res://scenes/::1784294171
+grabable_platformer.tscn::PackedScene::3071834475831294586::1784294171::0::1::::<><><>0<>0<><>::uid://ct6ld8sc7cpgo::::res://assets/sprites/placeholder/box.png
+platformer.tscn::PackedScene::4518328320748255043::1784294171::0::1::::<><><>0<>0<><>::uid://bj1awu02h5683::::res://scenes/grabable_platformer.tscn<>uid://oy67rn0cumj3::::res://entities/player_platformer.tscn

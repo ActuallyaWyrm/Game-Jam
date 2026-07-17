@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://eyvusp5nolad"]
+
+[ext_resource type="Texture2D" uid="uid://ch130jes0mka5" path="res://assets/sprites/menu/menu_bg.png" id="1_con2f"]
+[ext_resource type="Script" uid="uid://dtam0pne41edh" path="res://scenes/logo.gd" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://c1i7sissn4hhw" path="res://assets/sprites/menu/menu_logo.png" id="3_4ytvr"]
+
+[sub_resource type="GDScript" id="GDScript_con2f"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="Control" type="Control" unique_id=1069501017]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_mhnvy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=685216159]
+layout_mode = 0
+texture = ExtResource("1_con2f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1126170496]
+propagate_maximum_size = false
+layout_mode = 0
+offset_top = 525.00006
+offset_right = 239.99606
+offset_bottom = 568.27783
+scale = Vector2(4.800079, 2.8421042)
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=128016419]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=578336090]
+layout_mode = 2
+text = "Start"
+script = SubResource("GDScript_con2f")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1439006597]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 85.0
+offset_right = 874.0
+offset_bottom = 409.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(300, -100)
+offset_transform_scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_4ytvr")
+stretch_mode = 4
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,18 +1,17 @@
 extends Node2D
 
-enum game { PLATFORMER }
+enum game { MENU, PLATFORMER }
 
 var locked = false
-var current_game: game = game.PLATFORMER
-
-func _ready() -> void:
-	if current_game == game.PLATFORMER:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			locked = true
+var escaped = false
+var current_game: game = game.MENU
 
 func _process(delta: float) -> void:
+	if current_game == game.PLATFORMER or !escaped:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			locked = true
 	if Input.is_action_just_pressed("ui_cancel"):
-		locked = !locked
+		escaped = !escaped
 	if current_game == game.PLATFORMER:
 		if locked:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

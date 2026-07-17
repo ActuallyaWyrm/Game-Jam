@@ -15,11 +15,13 @@ var rope_length = 400
 var rope_pull = 300
 var grav = 100
 var jumping = false
-var direction
+var direction = 0
 var cur_dir
 var dirdir
 #	set(value):
 #		if acc_stage > 0 and !hooked or
+var aim_hor = 0
+var aim_vert = 0
 var slope_angle
 var slope_mod = 0
 var hook_velocity = Vector2()
@@ -82,6 +84,8 @@ func move(delta):
 	
 	if !zipping:
 		direction = Input.get_axis("walk_left", "walk_right")
+		aim_hor = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+		aim_vert = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
 	else:
 		direction = 0
 	
@@ -105,7 +109,7 @@ func move(delta):
 		vertical_boost = 1
 		cur_dir = sign(speed)
 		dirdir = direction == cur_dir
-		print(speed)
+		#print(speed)
 		
 		
 		
@@ -177,8 +181,6 @@ func _physics_process(delta: float) -> void:
 	if hooked:
 		gravity()
 		swing(delta)
-	elif zipping:
-		zip(delta)
 	move(delta)
 	#_is_sliding()
 	if direction != 0:
@@ -201,7 +203,7 @@ func hook():
 	if Input.is_action_just_released("grapple"):
 		if hook_pos:
 			if hook_pos.y > global_position.y:
-				release_mod = -1
+				release_mod = 1
 				vertical_boost = 2500
 			else:
 				release_mod = 1
@@ -227,18 +229,6 @@ func get_hook_pos():
 
 # swing player
 
-func zip(delta):
-	if hook_pos:
-		var radius = global_position - hook_pos
-		if velocity.length() < 0.01 or radius.length() < 10: return
-		var angle = acos(clamp(radius.dot(velocity) / (radius.length() * velocity.length()), 0, 1))
-		var rad_vel = cos(angle) * velocity.length()
-		velocity += radius.normalized() * -rad_vel
-		if global_position.distance_to(hook_pos) > current_rope_length:
-			global_position = hook_pos + radius.normalized() * current_rope_length
-		
-		velocity += hook_velocity * (hook_pos - global_position).normalized() * 60000 * delta
-
 func swing(delta):
 	if hook_pos:
 		var radius = global_position - hook_pos
@@ -258,7 +248,9 @@ func _input(event: InputEvent) -> void:
 		$Cursor.global_position += event.screen_relative
 		var normal = ($Cursor.global_position - global_position).normalized()
 		$Cursor.global_position = global_position + (normal * radius)
-
+	if event is InputEventJoypadMotion:
+		$Cursor.position.x = aim_hor * radius
+		$Cursor.position.y = aim_vert * radius
 # flip character to face appropriate direction
 # draw line between hook and player
 
