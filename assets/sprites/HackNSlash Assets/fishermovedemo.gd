@@ -1,23 +1,38 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
+@export var health: float = 100
+@export var damage: float = 5
+@export var speed: float = 300.0
+@export var cooldown: Dictionary[String,int] = {"current":0,"reset":120}
+var in_range: Array[CharacterBody2D]
 
 func _physics_process(delta: float) -> void:
 
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var directionx := Input.get_axis("ui_left", "ui_right")
-	if directionx:
-		velocity.x = directionx * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	var directiony := Input.get_axis("ui_up", "ui_down")
-	if directiony:
-		velocity.y = directiony * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+	# Movement
+	var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	velocity = speed * direction
 	move_and_slide()
+	
+	# Reduce cooldown
+	if cooldown["current"] > 0:
+		cooldown["current"] -= 1
+	else:
+		# Attack!
+		if Input.is_action_just_pressed("grapple"):
+			for i in in_range:
+				i.enhealth -= damage
+				cooldown["current"] = cooldown["reset"]
+				i.cooldown["current"] = i.cooldown["reset"]
+				i.checkifdead()
+
+# Add / remove enemy from range
+func _on_attack_area_entered(body: Node2D) -> void:
+	in_range.append(body)
+
+func _on_attack_area_exited(body: Node2D) -> void:
+	in_range.erase(body)
+
+# Die
+func checkifdead():
+	if health <= 0:
+		get_tree().reload_current_scene()

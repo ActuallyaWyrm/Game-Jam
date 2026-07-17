@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3tn85j620spl"]
 
 [ext_resource type="Script" uid="uid://nparxq5lq60g" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="SpriteFrames" uid="uid://b7cfsoxsvopef" path="res://assets/animations/fodder.tres" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://barq67eed08is" path="res://icon.svg" id="2_qi2p4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2n0k"]
@@ -8,13 +9,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2n0k"]
 radius = 22.022715
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1885662057]
+[node name="Enemy" type="CharacterBody2D" unique_id=1885662057]
 collision_layer = 5
 script = ExtResource("1_4gyqm")
 enhealth = 10.0
 damage = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=673180670]
+sprite_frames = ExtResource("2_iifgy")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=327224939]
 shape = SubResource("CapsuleShape2D_h2n0k")

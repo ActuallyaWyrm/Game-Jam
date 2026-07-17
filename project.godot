@@ -24,6 +24,11 @@ Launch="*uid://cg3ovqpk7sg31"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+"bad boys"="they be real bad"
+Player=""
+
 [input]
 
 walk_up={

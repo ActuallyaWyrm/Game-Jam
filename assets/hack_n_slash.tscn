@@ -5,10 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dw0p3vk23hdm5" path="res://assets/sprites/HackNSlash Assets/AlleySec3.png" id="3_r6hiy"]
 [ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_w5ys8"]
 [ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/sprites/HackNSlash Assets/BarSec1-2.png" id="5_0wegr"]
-[ext_resource type="SpriteFrames" uid="uid://b7cfsoxsvopef" path="res://assets/animations/fodder.tres" id="5_guwpv"]
 [ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/sprites/HackNSlash Assets/BarSec3.png" id="6_q7elh"]
-[ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="7_xlsp5"]
-[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="8_2ph6w"]
+[ext_resource type="PackedScene" uid="uid://d3tn85j620spl" path="res://enemy.tscn" id="8_guwpv"]
+[ext_resource type="PackedScene" uid="uid://dtpyc8mxp88lq" path="res://fisherman_hack_n_slash.tscn" id="8_u21x7"]
 [ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="9_0ikef"]
 [ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="10_xuqdi"]
 
@@ -30,10 +29,6 @@ b = Vector2(1913.9998, 306)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ng5t8"]
 a = Vector2(1937.9998, 261)
 b = Vector2(1809.9998, 305)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekcmj"]
-radius = 9.705894
-height = 54.117615
 
 [node name="HackNSlash" type="Node2D" unique_id=203919341]
 
@@ -75,12 +70,6 @@ texture = ExtResource("3_r6hiy")
 [node name="AlleyLevelHolder1Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1969598561]
 position = Vector2(2500, 0)
 texture = ExtResource("4_w5ys8")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
-position = Vector2(1289, 487)
-scale = Vector2(2.55, 2.55)
-sprite_frames = ExtResource("5_guwpv")
-animation = &"walk"
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 
@@ -124,24 +113,17 @@ shape = SubResource("SegmentShape2D_l8aqi")
 position = Vector2(300, 0)
 shape = SubResource("SegmentShape2D_ng5t8")
 
-[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871]
-position = Vector2(286.99997, 470)
-scale = Vector2(2.55, 2.55)
-script = ExtResource("7_xlsp5")
+[node name="Fisherman" parent="BarLevel" unique_id=598755402 instance=ExtResource("8_u21x7")]
+position = Vector2(306, 481)
 
-[node name="FishermanStatic" type="Sprite2D" parent="Fisherman" unique_id=1090419074]
-scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("8_2ph6w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=2132072107]
-position = Vector2(-5, 0)
-shape = SubResource("CapsuleShape2D_ekcmj")
+[node name="Enemy" parent="BarLevel" unique_id=1885662057 instance=ExtResource("8_guwpv")]
+position = Vector2(605, 488)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243 node_paths=PackedStringArray("fm")]
 position = Vector2(292, 330)
 scale = Vector2(2.55, 2.55)
 script = ExtResource("9_0ikef")
-fm = NodePath("../Fisherman")
+fm = NodePath("../BarLevel/Fisherman")
 
 [node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
 z_index = -1

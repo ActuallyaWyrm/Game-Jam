@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dtpyc8mxp88lq"]
+
+[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="1_s1b1d"]
+[ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="1_wpf0k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpf0k"]
+radius = 9.705894
+height = 54.117615
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpf0k"]
+size = Vector2(30, 30)
+
+[node name="Fisherman" type="CharacterBody2D" unique_id=598755402 groups=["Player"]]
+script = ExtResource("1_wpf0k")
+
+[node name="FishermanStatic" type="Sprite2D" parent="." unique_id=515575837]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("1_s1b1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435010979]
+position = Vector2(-5, 0)
+shape = SubResource("CapsuleShape2D_wpf0k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2114707097]
+position = Vector2(14, -1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=329415298]
+shape = SubResource("RectangleShape2D_wpf0k")
+debug_color = Color(0.9889869, 0, 0.30104727, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_attack_area_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_attack_area_exited"]
