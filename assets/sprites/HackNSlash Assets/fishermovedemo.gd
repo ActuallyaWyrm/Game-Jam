@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var health = 100
+
+var inrange:Array[CharacterBody2D]
 
 const SPEED = 300.0
 
@@ -19,5 +22,23 @@ func _physics_process(delta: float) -> void:
 		velocity.y = directiony * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+		
 	move_and_slide()
+	if Input.is_action_just_pressed("grapple"):
+		print_debug(inrange)
+		for I in inrange:
+			I.enhealth -= 5
+			I.checkifdead()
+			print_debug(I.enhealth)
+	
+func checkifdead():
+	if health <= 0:
+		get_tree().reload_current_scene()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	inrange.append(body)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	inrange.erase(body)
