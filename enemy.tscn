@@ -9,7 +9,9 @@
 radius = 22.022715
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1885662057]
+collision_layer = 5
 script = ExtResource("1_4gyqm")
+enhealth = 10.0
 damage = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=673180670]
@@ -17,9 +19,9 @@ damage = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=327224939]
 shape = SubResource("CapsuleShape2D_h2n0k")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1344953197]
+[node name="Area2D" type="Area2D" parent="." unique_id=1344953197 groups=["bad boys"]]
 collision_layer = 0
-collision_mask = 65534
+collision_mask = 4294967290
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1244838877]
 shape = SubResource("CircleShape2D_h2n0k")

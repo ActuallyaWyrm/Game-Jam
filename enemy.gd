@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var cooldown:Dictionary = {"current":0, "reset":120}
 
+@export var enhealth:float
+
 @export var damage:float
 
 @export var SPEED = 150.0
@@ -24,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		inrange[0].health-=damage
 		cooldown["current"] = cooldown["reset"]
 		print_debug(inrange[0].health)
+		inrange[0].checkifdead()
 
 	move_and_slide()
 
@@ -35,3 +38,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	inrange.erase(body)
+
+func checkifdead():
+	if enhealth <= 0:
+		queue_free()
