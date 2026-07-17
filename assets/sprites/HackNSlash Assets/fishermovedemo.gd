@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var health: float = 100
 @export var damage: float = 5
 @export var speed: float = 300.0
-@export var cooldown: Dictionary[String,int] = {"current":0,"reset":120}
+@export var cooldown: Dictionary[String,int] = {"current":0,"reset":60}
+@export var sprite: AnimatedSprite2D
 var in_range: Array[CharacterBody2D]
 
 func _physics_process(delta: float) -> void:
@@ -19,10 +20,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Attack!
 		if Input.is_action_just_pressed("grapple"):
+			sprite.play("attack")
 			for i in in_range:
 				i.enhealth -= damage
 				cooldown["current"] = cooldown["reset"]
 				i.checkifdead()
+		else:
+			sprite.play("static")
 
 # Add / remove enemy from range
 func _on_attack_area_entered(body: Node2D) -> void:

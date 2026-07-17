@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ddclainqyjj8c"]
+
+[ext_resource type="Texture2D" uid="uid://bwdt46e6x4bxv" path="res://assets/animations/fisherman_attack1.webp" id="1_qx3rn"]
+[ext_resource type="Texture2D" uid="uid://6tytpxb4kcqe" path="res://assets/animations/fisherman_attack2.webp" id="2_8tagk"]
+[ext_resource type="Texture2D" uid="uid://7suodutypft5" path="res://assets/animations/fisherman_attack3.webp" id="3_fsy8o"]
+[ext_resource type="Texture2D" uid="uid://nkehsx0ifj4j" path="res://assets/animations/fisherman_attack4.webp" id="4_mjfcw"]
+[ext_resource type="Texture2D" uid="uid://dm4pdcrjytcak" path="res://assets/animations/fisherman_attack5.webp" id="5_2y8ga"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qx3rn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8tagk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fsy8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mjfcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2y8ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2y8ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2y8ga")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qx3rn")
+}],
+"loop": 1,
+"name": &"static",
+"speed": 5.0
+}]

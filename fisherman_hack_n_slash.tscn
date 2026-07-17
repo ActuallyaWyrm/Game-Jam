@@ -1,38 +1,42 @@
 [gd_scene format=3 uid="uid://dtpyc8mxp88lq"]
 
-[ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="1_s1b1d"]
 [ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="1_wpf0k"]
+[ext_resource type="SpriteFrames" uid="uid://ddclainqyjj8c" path="res://assets/animations/fisherman.tres" id="3_rhcox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpf0k"]
-radius = 9.705894
-height = 54.117615
+radius = 5.0
+height = 25.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpf0k"]
-size = Vector2(30, 30)
+size = Vector2(36.17647, 35.54902)
 
-[node name="Fisherman" type="CharacterBody2D" unique_id=598755402 groups=["Player"]]
+[node name="Fisherman" type="CharacterBody2D" unique_id=598755402 node_paths=PackedStringArray("sprite") groups=["Player"]]
+scale = Vector2(2.5, 2.5)
 collision_layer = 3
 script = ExtResource("1_wpf0k")
-
-[node name="FishermanStatic" type="Sprite2D" parent="." unique_id=515575837]
-scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_s1b1d")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435010979]
-position = Vector2(-5, 0)
+position = Vector2(-0.4000001, 18.800001)
 scale = Vector2(2.55, 2.55)
 shape = SubResource("CapsuleShape2D_wpf0k")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2114707097]
-position = Vector2(14, -1)
+position = Vector2(-1.5999994, 12.4)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=329415298]
-position = Vector2(40, 0)
+position = Vector2(32.124996, -7.0750012)
 scale = Vector2(2.55, 2.55)
 shape = SubResource("RectangleShape2D_wpf0k")
 debug_color = Color(0.9889869, 0, 0.30104727, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=243423742]
+sprite_frames = ExtResource("3_rhcox")
+animation = &"attack"
+frame = 4
+frame_progress = 0.45775187
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_attack_area_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_attack_area_exited"]
