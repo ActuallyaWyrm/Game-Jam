@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjg51wmuh72q5"]
+
+[ext_resource type="PackedScene" uid="uid://diidsrqqtg335" path="res://assets/hack_n_slash.tscn" id="1_sekm8"]
+
+[node name="HackNSlash" unique_id=203919341 instance=ExtResource("1_sekm8")]
+
+[node name="Fisherman" parent="." index="3" unique_id=598755402]
+collision_layer = 1
