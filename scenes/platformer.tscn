@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c5eol8cuuevqm" path="res://assets/sprites/environment/bg_layer_1.png" id="4_xlal6"]
 [ext_resource type="Texture2D" uid="uid://dhwfwptfujfhh" path="res://assets/sprites/environment/bg_layer_2.png" id="5_qcnyv"]
 [ext_resource type="TileSet" uid="uid://c5aofyi2uvhau" path="res://assets/tilesets/platformer_forest.tres" id="6_qcnyv"]
+[ext_resource type="Script" uid="uid://cx7wm3yfl72xa" path="res://scenes/goal.gd" id="7_bareo"]
+[ext_resource type="Texture2D" uid="uid://dub0mvsikopj1" path="res://assets/sprites/placeholder/placeholder.png" id="8_txcic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2n0k"]
+size = Vector2(553, 577)
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
@@ -22,8 +27,8 @@ position = Vector2(-1471, 1376)
 scale = Vector2(8.275414, 1.8851271)
 
 [node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
-position = Vector2(1387, -403)
-scale = Vector2(0.36880434, 0.9487343)
+position = Vector2(1273, -232)
+scale = Vector2(1.2080146, -0.9170035)
 
 [node name="Grabable6" parent="Grabables" unique_id=1078555241 instance=ExtResource("1_j2uy2")]
 position = Vector2(-1084, 493)
@@ -32,6 +37,26 @@ scale = Vector2(1.9418354, 1.3729993)
 
 [node name="Grabable2" parent="Grabables" unique_id=645432284 instance=ExtResource("1_j2uy2")]
 position = Vector2(188.00006, -1241.0001)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable3" parent="Grabables" unique_id=1178274068 instance=ExtResource("1_j2uy2")]
+position = Vector2(229, -2440)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable5" parent="Grabables" unique_id=1446950354 instance=ExtResource("1_j2uy2")]
+position = Vector2(-2287, -2904.0002)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable9" parent="Grabables" unique_id=1068797469 instance=ExtResource("1_j2uy2")]
+position = Vector2(114.000015, -3439)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable10" parent="Grabables" unique_id=330982810 instance=ExtResource("1_j2uy2")]
+position = Vector2(2435, -3710)
 rotation = -3.1415927
 scale = Vector2(1.4010304, 1.3729993)
 
@@ -72,3 +97,16 @@ texture = ExtResource("5_qcnyv")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1906542614]
 tile_set = ExtResource("6_qcnyv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=265086085]
+script = ExtResource("7_bareo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1870977399]
+position = Vector2(-1431, 464)
+shape = SubResource("RectangleShape2D_h2n0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=489832087]
+position = Vector2(-1431, 463)
+texture = ExtResource("8_txcic")
+
+[connection signal="body_entered" from="Area2D" to="PlayerPlatformer" method="_on_area_2d_body_entered"]

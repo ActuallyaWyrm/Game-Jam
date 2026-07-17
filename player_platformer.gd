@@ -293,3 +293,8 @@ func _draw() -> void:
 	if direction < 0:
 		animation.scale.x = -5
 	var pos = global_position
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	Launch.current_game = Launch.game.MENU
+	get_tree().change_scene_to_file("res://assets/hack_n_slash.tscn")
