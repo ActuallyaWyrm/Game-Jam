@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dw0p3vk23hdm5" path="res://assets/sprites/HackNSlash Assets/AlleySec3.png" id="3_r6hiy"]
 [ext_resource type="Texture2D" uid="uid://hs0ulrk6s4lo" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_w5ys8"]
 [ext_resource type="Texture2D" uid="uid://ckpvq2w267j3x" path="res://assets/sprites/HackNSlash Assets/BarSec1-2.png" id="5_0wegr"]
+[ext_resource type="SpriteFrames" uid="uid://b7cfsoxsvopef" path="res://assets/animations/fodder.tres" id="5_guwpv"]
 [ext_resource type="Texture2D" uid="uid://n8su34qoo85m" path="res://assets/sprites/HackNSlash Assets/BarSec3.png" id="6_q7elh"]
 [ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="7_xlsp5"]
 [ext_resource type="Texture2D" uid="uid://11ltqu53qe8x" path="res://assets/sprites/HackNSlash Assets/FishermanStatic.png" id="8_2ph6w"]
@@ -17,8 +18,6 @@ b = Vector2(33, 258)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xy1b7"]
 b = Vector2(-5, 624)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u21x7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_pr82s"]
 a = Vector2(1504.9998, 299)
@@ -78,8 +77,10 @@ position = Vector2(2500, 0)
 texture = ExtResource("4_w5ys8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
-position = Vector2(1388, -441)
-sprite_frames = SubResource("SpriteFrames_u21x7")
+position = Vector2(1289, 487)
+scale = Vector2(2.55, 2.55)
+sprite_frames = ExtResource("5_guwpv")
+animation = &"walk"
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 
