@@ -33,7 +33,7 @@ a = Vector2(1937.9998, 261)
 b = Vector2(1809.9998, 305)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekcmj"]
-radius = 7.8431854
+radius = 9.705894
 height = 54.117615
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crjjy"]
@@ -46,7 +46,7 @@ size = Vector2(33.13, 28.79)
 [node name="AlleyLevel12Pixilart" type="Sprite2D" parent="AlleyLevel" unique_id=885389134]
 position = Vector2(1277, 330)
 scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_3hdrw")
+texture = ExtResource("1_u21x7")
 
 [node name="EnviroHitboxesAlley" type="StaticBody2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1146209461]
 position = Vector2(-489.41177, -128.62746)
@@ -68,31 +68,33 @@ shape = SubResource("SegmentShape2D_xy1b7")
 
 [node name="AlleyLevel12Pixilart(3)" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1331802087]
 position = Vector2(1500, 0)
-scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("2_4wc1s")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_guwpv")
 
 [node name="AlleyLevel3Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1423367927]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("9_ftj4b")
+texture = ExtResource("3_r6hiy")
 
 [node name="AlleyLevelHolder1Pixilart" type="Sprite2D" parent="AlleyLevel/AlleyLevel12Pixilart" unique_id=1969598561]
 position = Vector2(2500, 0)
-texture = ExtResource("4_ftj4b")
+texture = ExtResource("4_w5ys8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AlleyLevel" unique_id=904346313]
+position = Vector2(1388, -441)
+animation = &"idle"
 
 [node name="BarLevel" type="Node2D" parent="." unique_id=241537901]
 
 [node name="BarEnviroArt1" type="Sprite2D" parent="BarLevel" unique_id=1949093678]
 position = Vector2(1278, 1125)
 scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_o3afp")
+texture = ExtResource("5_0wegr")
 
 [node name="BarEnviroEndish2" type="Sprite2D" parent="BarLevel/BarEnviroArt1" unique_id=1767906794]
 position = Vector2(750, 0)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("2_441wl")
+texture = ExtResource("6_q7elh")
 
 [node name="EnviroHitboxesBar" type="StaticBody2D" parent="BarLevel/BarEnviroArt1" unique_id=166547320]
 position = Vector2(-503.52942, -130.19608)
@@ -127,12 +129,13 @@ shape = SubResource("SegmentShape2D_ng5t8")
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=683381871 groups=["Player"]]
 position = Vector2(273.99994, 493.99994)
 scale = Vector2(2.55, 2.55)
+
 collision_layer = 3
 script = ExtResource("4_buh41")
 
 [node name="FishermanStatic" type="Sprite2D" parent="Fisherman" unique_id=1090419074]
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("4_olhsv")
+texture = ExtResource("8_2ph6w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=2132072107]
 position = Vector2(-5, 0)
@@ -151,12 +154,13 @@ shape = SubResource("RectangleShape2D_crjjy")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243 node_paths=PackedStringArray("fm")]
 position = Vector2(292, 330)
 scale = Vector2(2.55, 2.55)
-script = ExtResource("7_51mk3")
+script = ExtResource("9_0ikef")
 fm = NodePath("../Fisherman")
 
 [node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
 z_index = -1
 scale = Vector2(1.0000002, 1.5709033)
+
 texture = ExtResource("5_buh41")
 
 [node name="Node2D" parent="." unique_id=1885662057 instance=ExtResource("11_ymiah")]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8yeop3x3n0tp"
-path="res://.godot/imported/bar-level-3-pixilart.png-c89a1a962e9448f5bced9ee77e941db7.ctex"
+uid="uid://11ltqu53qe8x"
+path="res://.godot/imported/FishermanStatic.png-1e5fd4a13bf0356f51257c107e3c2b89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HackNSlash Assets/bar-level-3-pixilart.png"
-dest_files=["res://.godot/imported/bar-level-3-pixilart.png-c89a1a962e9448f5bced9ee77e941db7.ctex"]
+source_file="res://assets/sprites/HackNSlash Assets/FishermanStatic.png"
+dest_files=["res://.godot/imported/FishermanStatic.png-1e5fd4a13bf0356f51257c107e3c2b89.ctex"]
 
 [params]
 
