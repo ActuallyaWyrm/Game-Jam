@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var health = 100
-
+@export var cooldown:Dictionary = {"current":0, "reset":120}
 var inrange:Array[CharacterBody2D]
 
 const SPEED = 300.0
@@ -24,12 +24,18 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
-	if Input.is_action_just_pressed("grapple"):
-		print_debug(inrange)
-		for I in inrange:
-			I.enhealth -= 5
-			I.checkifdead()
-			print_debug(I.enhealth)
+	
+	if cooldown["current"] > 0:
+		cooldown["current"] -= 1
+	else:
+		if Input.is_action_just_pressed("grapple"):
+			print_debug(inrange)
+			cooldown["current"] = cooldown["reset"]
+			for I in inrange:
+				I.enhealth -= 5
+				I.checkifdead()
+				I.cooldown["current"] = I.cooldown["reset"]
+				print_debug(I.enhealth)
 	
 func checkifdead():
 	if health <= 0:
