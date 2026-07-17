@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cydrgwoffh4hl" path="res://slope.tscn" id="3_85uu4"]
 [ext_resource type="Texture2D" uid="uid://c5eol8cuuevqm" path="res://assets/sprites/environment/bg_layer_1.png" id="4_xlal6"]
 [ext_resource type="Texture2D" uid="uid://dhwfwptfujfhh" path="res://assets/sprites/environment/bg_layer_2.png" id="5_qcnyv"]
+[ext_resource type="TileSet" uid="uid://c5aofyi2uvhau" path="res://assets/tilesets/platformer_forest.tres" id="6_qcnyv"]
 
 [node name="Platformer" type="Node2D" unique_id=1169925800]
 
@@ -16,13 +17,13 @@ position = Vector2(-1704.9873, -1762.9312)
 rotation = -3.1415927
 scale = Vector2(1.1294281, -0.95917445)
 
-[node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
-position = Vector2(1387, -403)
-scale = Vector2(0.36880434, 0.9487343)
-
 [node name="Grabable8" parent="Grabables" unique_id=1320924399 instance=ExtResource("1_j2uy2")]
 position = Vector2(-1471, 1376)
 scale = Vector2(8.275414, 1.8851271)
+
+[node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
+position = Vector2(1387, -403)
+scale = Vector2(0.36880434, 0.9487343)
 
 [node name="Grabable6" parent="Grabables" unique_id=1078555241 instance=ExtResource("1_j2uy2")]
 position = Vector2(-1084, 493)
@@ -61,7 +62,7 @@ scale = Vector2(10.0586195, 3.9276)
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1194881441]
 z_index = -9
 scroll_scale = Vector2(0.1, 0)
-scroll_offset = Vector2(-961, 196)
+scroll_offset = Vector2(-26, 391)
 repeat_size = Vector2(2016, 0)
 repeat_times = 3
 
@@ -72,10 +73,13 @@ texture = ExtResource("4_xlal6")
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=483967667]
 z_index = -8
 scroll_scale = Vector2(0.2, 0)
-scroll_offset = Vector2(-961, 196)
+scroll_offset = Vector2(-26, 391)
 repeat_size = Vector2(2016, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=388944758]
 scale = Vector2(7, 7)
 texture = ExtResource("5_qcnyv")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1906542614]
+tile_set = ExtResource("6_qcnyv")

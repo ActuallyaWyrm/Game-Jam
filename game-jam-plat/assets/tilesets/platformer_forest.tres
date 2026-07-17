@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" format=3 uid="uid://c5aofyi2uvhau"]
+
+[ext_resource type="Texture2D" uid="uid://cco0fwqba6wqs" path="res://assets/sprites/environment/thorns_single_tile.png" id="1_cmeea"]
+[ext_resource type="Texture2D" uid="uid://t4tf5pw17frb" path="res://assets/sprites/environment/thorns_tile.png" id="2_m8ou8"]
+[ext_resource type="Texture2D" uid="uid://b4b8sfm4adgcs" path="res://assets/sprites/environment/wood_tile.png" id="3_7xmjl"]
+[ext_resource type="Texture2D" uid="uid://bhexn1eur8l1v" path="res://assets/sprites/environment/wood_tile_slope.png" id="4_n40w0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6i3n"]
+texture = ExtResource("1_cmeea")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urmtc"]
+texture = ExtResource("2_m8ou8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jxfe"]
+texture = ExtResource("3_7xmjl")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0uto"]
+texture = ExtResource("4_n40w0")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_l6i3n")
+sources/1 = SubResource("TileSetAtlasSource_urmtc")
+sources/2 = SubResource("TileSetAtlasSource_6jxfe")
+sources/3 = SubResource("TileSetAtlasSource_r0uto")

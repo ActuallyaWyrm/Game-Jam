@@ -11,7 +11,7 @@ var pos_ = 0
 var neg_ = 0
 var abs_speed
 var jump_height = 1500
-var rope_length = 400
+var rope_length = 75
 var rope_pull = 300
 var grav = 100
 var jumping = false
