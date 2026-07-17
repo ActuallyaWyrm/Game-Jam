@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c7x3ctuutwn64" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="5_buh41"]
 [ext_resource type="Script" uid="uid://insvtsbasgvc" path="res://assets/sprites/HackNSlash Assets/CameraFollow.gd" id="7_51mk3"]
 [ext_resource type="Texture2D" path="res://assets/sprites/HackNSlash Assets/alley-level-3-pixilart.png" id="9_ftj4b"]
-[ext_resource type="PackedScene" uid="uid://d3tn85j620spl" path="res://enemy.tscn" id="11_ymiah"]
-[ext_resource type="PackedScene" uid="uid://dxuu2wgn3pe30" path="res://enemy 2.tscn" id="12_v4267"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ekcmj"]
 a = Vector2(8936.998, 255.99994)
@@ -162,13 +160,6 @@ fm = NodePath("../Fisherman")
 z_index = -1
 scale = Vector2(1.0000002, 1.5709033)
 texture = ExtResource("5_buh41")
-
-[node name="Node2D" parent="." unique_id=1885662057 instance=ExtResource("11_ymiah")]
-position = Vector2(3249, 510)
-
-[node name="Node2D2" parent="." unique_id=1215393920 instance=ExtResource("12_v4267")]
-position = Vector2(2076, 485)
-scale = Vector2(1.3617584, 1.6156653)
 
 [connection signal="body_entered" from="Fisherman/Area2D" to="Fisherman" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Fisherman/Area2D" to="Fisherman" method="_on_area_2d_body_exited"]
