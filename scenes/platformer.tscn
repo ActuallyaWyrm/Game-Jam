@@ -99,6 +99,7 @@ texture = ExtResource("5_qcnyv")
 tile_set = ExtResource("6_qcnyv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=265086085]
+position = Vector2(1126, 548)
 script = ExtResource("7_bareo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1870977399]
