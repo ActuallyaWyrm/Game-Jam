@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtpyc8mxp88lq"]
 
-[ext_resource type="Script" uid="uid://c1vxhl6dp8c1c" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="1_wpf0k"]
+[ext_resource type="Script" uid="uid://1nfu1vy2mere" path="res://assets/sprites/HackNSlash Assets/fishermovedemo.gd" id="1_wpf0k"]
 [ext_resource type="SpriteFrames" uid="uid://ddclainqyjj8c" path="res://assets/animations/fisherman.tres" id="3_rhcox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpf0k"]

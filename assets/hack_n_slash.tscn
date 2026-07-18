@@ -124,18 +124,19 @@ shape = SubResource("SegmentShape2D_l8aqi")
 position = Vector2(300, 0)
 shape = SubResource("SegmentShape2D_ng5t8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243]
-position = Vector2(292, 330)
-scale = Vector2(2.55, 2.55)
+[node name="Fisherman" parent="." unique_id=598755402 instance=ExtResource("8_u21x7")]
+position = Vector2(306, 481)
+
+[node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=1174580243]
+position = Vector2(-5.5999985, -60.40001)
+scale = Vector2(1.0199999, 1.0199999)
+drag_vertical_enabled = true
 script = ExtResource("6_7hw2h")
 
-[node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
+[node name="Screenborder" type="Sprite2D" parent="Fisherman/Camera2D" unique_id=1938870260]
 z_index = -1
 scale = Vector2(1.0000002, 1.5709033)
 texture = ExtResource("10_xuqdi")
-
-[node name="Fisherman" parent="." unique_id=598755402 instance=ExtResource("8_u21x7")]
-position = Vector2(306, 481)
 
 [node name="Enemy" parent="." unique_id=1885662057 groups=["bad boys"] instance=ExtResource("8_guwpv")]
 position = Vector2(605, 488)
