@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3tn85j620spl"]
 
-[ext_resource type="Script" uid="uid://nparxq5lq60g" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://d2j3nj63algxi" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="SpriteFrames" uid="uid://b7cfsoxsvopef" path="res://assets/animations/fodder.tres" id="2_iifgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2n0k"]
@@ -18,7 +18,7 @@ damage = 5.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=673180670]
 scale = Vector2(2.55, 2.55)
 sprite_frames = ExtResource("2_iifgy")
-animation = &"gethit"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=327224939]
 scale = Vector2(2.55, 2.55)
