@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bsxbi3a0u8m41" path="res://assets/sprites/menu/pixilart-drawing (8).png" id="2_r6hiy"]
 [ext_resource type="Texture2D" uid="uid://dd3xtfx8wfkss" path="res://assets/sprites/HackNSlash Assets/pixilart-drawing (6).png" id="3_r6hiy"]
 [ext_resource type="Texture2D" uid="uid://sk0p42dygodh" path="res://assets/sprites/HackNSlash Assets/alley-level-holder1-pixilart.png" id="4_w5ys8"]
+[ext_resource type="Script" uid="uid://p3noaudjqt1h" path="res://assets/camera_2d.gd" id="6_7hw2h"]
 [ext_resource type="PackedScene" uid="uid://d3tn85j620spl" path="res://enemy.tscn" id="8_guwpv"]
 [ext_resource type="PackedScene" uid="uid://dtpyc8mxp88lq" path="res://fisherman_hack_n_slash.tscn" id="8_u21x7"]
+[ext_resource type="Texture2D" uid="uid://dnh0q6u0urtb" path="res://assets/sprites/HackNSlash Assets/Screenshot_15-7-2026_133038_www.pixilart.com.jpeg" id="10_xuqdi"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ekcmj"]
 a = Vector2(8936.998, 255.99994)
@@ -125,10 +127,12 @@ shape = SubResource("SegmentShape2D_ng5t8")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1174580243]
 position = Vector2(292, 330)
 scale = Vector2(2.55, 2.55)
+script = ExtResource("6_7hw2h")
 
 [node name="Screenborder" type="Sprite2D" parent="Camera2D" unique_id=1938870260]
 z_index = -1
 scale = Vector2(1.0000002, 1.5709033)
+texture = ExtResource("10_xuqdi")
 
 [node name="Fisherman" parent="." unique_id=598755402 instance=ExtResource("8_u21x7")]
 position = Vector2(306, 481)
