@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # movement vars
 
+var leaving = false
 var max_mod = 1
 var slide_mod = 1.5
 var friction = 1.5
@@ -82,12 +83,11 @@ func move(delta):
 	
 	# walk
 	
-	if !zipping:
-		direction = Input.get_axis("walk_left", "walk_right")
+	direction = Input.get_axis("walk_left", "walk_right")
+	if Launch.is_joypad:
 		aim_hor = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 		aim_vert = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
-	else:
-		direction = 0
+		
 	
 	# slide
 	
@@ -188,6 +188,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = speed
 	move_and_slide()
+	if leaving:
+		leaving = false
+		get_tree().change_scene_to_file("res://assets/hack_n_slash.tscn")
 
 # handle grapple input
 	
@@ -248,9 +251,8 @@ func _input(event: InputEvent) -> void:
 		$Cursor.global_position += event.screen_relative
 		var normal = ($Cursor.global_position - global_position).normalized()
 		$Cursor.global_position = global_position + (normal * radius)
-	if event is InputEventJoypadMotion:
-		$Cursor.position.x = aim_hor * radius
-		$Cursor.position.y = aim_vert * radius
+	if Launch.is_joypad:
+		$Cursor.position = Vector2(aim_hor, aim_vert) * radius
 # flip character to face appropriate direction
 # draw line between hook and player
 
@@ -297,4 +299,5 @@ func _draw() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	Launch.current_game = Launch.game.MENU
-	get_tree().change_scene_to_file("res://assets/hack_n_slash.tscn")
+	leaving = true
+	
