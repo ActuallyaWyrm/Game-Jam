@@ -18,11 +18,20 @@ config/icon="res://icon.svg"
 [autoload]
 
 Launch="*uid://cg3ovqpk7sg31"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+Player="Player Objects"
 
 [input]
 
@@ -124,6 +133,10 @@ reset={
 [input_devices]
 
 pointing/emulate_mouse_from_touch=false
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://test.dialogue")
 
 [physics]
 

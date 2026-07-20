@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://c5aofyi2uvhau" path="res://assets/tilesets/platformer_forest.tres" id="6_qcnyv"]
 [ext_resource type="Script" uid="uid://cx7wm3yfl72xa" path="res://scenes/goal.gd" id="7_bareo"]
 [ext_resource type="Texture2D" uid="uid://dub0mvsikopj1" path="res://assets/sprites/placeholder/placeholder.png" id="8_txcic"]
+[ext_resource type="Script" uid="uid://cnra6oxkbvhjv" path="res://scenes/dialogue_event.gd" id="9_txcic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2n0k"]
 size = Vector2(553, 577)
@@ -60,10 +61,9 @@ position = Vector2(2435, -3710)
 rotation = -3.1415927
 scale = Vector2(1.4010304, 1.3729993)
 
-[node name="PlayerPlatformer" parent="." unique_id=171132049 instance=ExtResource("1_xxtnn")]
+[node name="PlayerPlatformer" parent="." unique_id=171132049 groups=["Player"] instance=ExtResource("1_xxtnn")]
 position = Vector2(-2928, -42)
 floor_stop_on_slope = false
-floor_max_angle = 1.4835298
 
 [node name="slope2" parent="." unique_id=551720810 instance=ExtResource("3_85uu4")]
 position = Vector2(-1936, 850)
@@ -99,7 +99,7 @@ texture = ExtResource("5_qcnyv")
 tile_set = ExtResource("6_qcnyv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=265086085]
-position = Vector2(1174, 982)
+position = Vector2(1209.9999, 1702)
 scale = Vector2(0.83220935, 0.36675104)
 script = ExtResource("7_bareo")
 
@@ -111,4 +111,19 @@ shape = SubResource("RectangleShape2D_h2n0k")
 position = Vector2(-1431, 463)
 texture = ExtResource("8_txcic")
 
+[node name="DialogueEvent" type="Area2D" parent="." unique_id=676244763]
+position = Vector2(23.999939, 288)
+scale = Vector2(4.0872197, 0.6839007)
+script = ExtResource("9_txcic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueEvent" unique_id=254051958]
+position = Vector2(-0.06750488, -0.05368042)
+shape = SubResource("RectangleShape2D_h2n0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueEvent" unique_id=2119762235]
+visible = false
+position = Vector2(-0.06774902, -0.053527832)
+texture = ExtResource("8_txcic")
+
 [connection signal="body_entered" from="Area2D" to="PlayerPlatformer" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DialogueEvent" to="DialogueEvent" method="_on_body_entered"]

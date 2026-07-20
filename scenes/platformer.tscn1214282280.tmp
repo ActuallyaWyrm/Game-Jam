@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://b5myhbv8ntedf"]
+
+[ext_resource type="PackedScene" uid="uid://bj1awu02h5683" path="res://scenes/grabable_platformer.tscn" id="1_j2uy2"]
+[ext_resource type="PackedScene" uid="uid://oy67rn0cumj3" path="res://entities/player_platformer.tscn" id="1_xxtnn"]
+[ext_resource type="PackedScene" uid="uid://cydrgwoffh4hl" path="res://slope.tscn" id="3_85uu4"]
+[ext_resource type="Texture2D" uid="uid://c5eol8cuuevqm" path="res://assets/sprites/environment/bg_layer_1.png" id="4_xlal6"]
+[ext_resource type="Texture2D" uid="uid://dhwfwptfujfhh" path="res://assets/sprites/environment/bg_layer_2.png" id="5_qcnyv"]
+[ext_resource type="TileSet" uid="uid://c5aofyi2uvhau" path="res://assets/tilesets/platformer_forest.tres" id="6_qcnyv"]
+[ext_resource type="Script" uid="uid://cx7wm3yfl72xa" path="res://scenes/goal.gd" id="7_bareo"]
+[ext_resource type="Texture2D" uid="uid://dub0mvsikopj1" path="res://assets/sprites/placeholder/placeholder.png" id="8_txcic"]
+[ext_resource type="Script" uid="uid://cnra6oxkbvhjv" path="res://scenes/dialogue_event.gd" id="9_txcic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2n0k"]
+size = Vector2(553, 577)
+
+[node name="Platformer" type="Node2D" unique_id=1169925800]
+
+[node name="Grabables" type="Node2D" parent="." unique_id=2115641317]
+position = Vector2(1108, 46)
+
+[node name="Grabable4" parent="Grabables" unique_id=1794959916 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1704.9873, -1762.9312)
+rotation = -3.1415927
+scale = Vector2(1.1294281, -0.95917445)
+
+[node name="Grabable8" parent="Grabables" unique_id=1320924399 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1471, 1376)
+scale = Vector2(8.275414, 1.8851271)
+
+[node name="Grabable7" parent="Grabables" unique_id=606204080 instance=ExtResource("1_j2uy2")]
+position = Vector2(1273, -232)
+scale = Vector2(1.2080146, -0.9170035)
+
+[node name="Grabable6" parent="Grabables" unique_id=1078555241 instance=ExtResource("1_j2uy2")]
+position = Vector2(-1084, 493)
+rotation = -3.1415927
+scale = Vector2(1.9418354, 1.3729993)
+
+[node name="Grabable2" parent="Grabables" unique_id=645432284 instance=ExtResource("1_j2uy2")]
+position = Vector2(188.00006, -1241.0001)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable3" parent="Grabables" unique_id=1178274068 instance=ExtResource("1_j2uy2")]
+position = Vector2(229, -2440)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable5" parent="Grabables" unique_id=1446950354 instance=ExtResource("1_j2uy2")]
+position = Vector2(-2287, -2904.0002)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable9" parent="Grabables" unique_id=1068797469 instance=ExtResource("1_j2uy2")]
+position = Vector2(114.000015, -3439)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="Grabable10" parent="Grabables" unique_id=330982810 instance=ExtResource("1_j2uy2")]
+position = Vector2(2435, -3710)
+rotation = -3.1415927
+scale = Vector2(1.4010304, 1.3729993)
+
+[node name="PlayerPlatformer" parent="." unique_id=171132049 groups=["Player"] instance=ExtResource("1_xxtnn")]
+position = Vector2(-2928, -42)
+floor_stop_on_slope = false
+
+[node name="slope2" parent="." unique_id=551720810 instance=ExtResource("3_85uu4")]
+position = Vector2(-1936, 850)
+scale = Vector2(-11.337565, 8.9353)
+
+[node name="slope" parent="." unique_id=8897053 instance=ExtResource("3_85uu4")]
+position = Vector2(1865.0001, 1137)
+scale = Vector2(10.0586195, 3.9276)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1194881441]
+z_index = -9
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-26, 391)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1700703590]
+scale = Vector2(7, 7)
+texture = ExtResource("4_xlal6")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=483967667]
+z_index = -8
+scroll_scale = Vector2(0.2, 0)
+scroll_offset = Vector2(-26, 391)
+repeat_size = Vector2(2016, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=388944758]
+scale = Vector2(7, 7)
+texture = ExtResource("5_qcnyv")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1906542614]
+tile_set = ExtResource("6_qcnyv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=265086085]
+position = Vector2(1209.9999, 1702)
+scale = Vector2(0.83220935, 0.36675104)
+script = ExtResource("7_bareo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1870977399]
+position = Vector2(-1431, 464)
+shape = SubResource("RectangleShape2D_h2n0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=489832087]
+position = Vector2(-1431, 463)
+texture = ExtResource("8_txcic")
+
+[node name="DialogueEvent" type="Area2D" parent="." unique_id=676244763]
+position = Vector2(23.999939, 288)
+scale = Vector2(4.0872197, 0.6839007)
+script = ExtResource("9_txcic")
+resource = null
+cue = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueEvent" unique_id=254051958]
+position = Vector2(-0.06750488, -0.05368042)
+shape = SubResource("RectangleShape2D_h2n0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueEvent" unique_id=2119762235]
+position = Vector2(-0.06774902, -0.053527832)
+texture = ExtResource("8_txcic")
+
+[connection signal="body_entered" from="Area2D" to="PlayerPlatformer" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DialogueEvent" to="DialogueEvent" method="_on_body_entered"]

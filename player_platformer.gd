@@ -2,14 +2,13 @@ extends CharacterBody2D
 
 # movement vars
 
-var leaving = false
+var sloped = false
 var max_mod = 1
 var slide_mod = 1.5
-var friction = 1.5
+var friction = 1.15
 var sliding = false
 var speed = 0
 var pos_ = 0
-var neg_ = 0
 var abs_speed
 var jump_height = 1500
 var rope_length = 75
@@ -47,10 +46,19 @@ var draw_swing_air = false
 @onready var animation = $AnimatedSprite2D
 @onready var camera = $Camera2D
 
-# create current rope var
+# misc vars
+
+var leaving = false
+var is_dialogue = false
+
+# create current rope var and assign signals
 
 func _ready() -> void:
+	
 	current_rope_length = rope_length
+	
+	DialogueManager.connect("dialogue_started", _dialogue_started)
+	DialogueManager.connect("dialogue_ended", _dialogue_ended)
 	
 # have physics affect the player
 	
@@ -63,14 +71,25 @@ func move(delta):
 	
 	# set slope angle speed modifier
 	
-	if (walk_angle == 180) or (walk_angle == 0):
-		max_mod = 0
+	jumping = Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()
+	direction = Input.get_axis("walk_left", "walk_right")
+	
+	if direction == 0:
+		sloped = false
+	
+	if (walk_angle == 180) or (walk_angle == 0) and !sloped:
+		max_mod -= 1.5
+		max_mod = max(max_mod, 0)
+		floor_snap_length = 10.5
 	else:
+		sloped = true
 		max_mod = 100 * abs(walk_angle)
+		if jumping or (abs(walk_angle - 180) < 5) or ((abs(walk_angle) < 5) and is_on_floor()):
+			floor_snap_length = 10.5
+		else:
+			floor_snap_length = 250
 	
 	# jump
-	
-	jumping = Input.is_action_just_pressed("jump") and !zipping and !hooked and is_on_floor()
 	
 	if jumping:
 		velocity.y -= (jump_height + max_mod)
@@ -83,7 +102,6 @@ func move(delta):
 	
 	# walk
 	
-	direction = Input.get_axis("walk_left", "walk_right")
 	if Launch.is_joypad:
 		aim_hor = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 		aim_vert = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
@@ -109,42 +127,22 @@ func move(delta):
 		vertical_boost = 1
 		cur_dir = sign(speed)
 		dirdir = direction == cur_dir
-		#print(speed)
 		
 		
+		if pos_ == 0:
+			pos_ += 100
+		if abs(pos_) <= 2500:
+			pos_ *= 1.1
 		
-		if direction == 1:
-			if pos_ == 0:
-				pos_ += direction * 100
-			if pos_ > 0 and pos_ <= 2500:
-				pos_ *= 1.1
-			neg_ /= 1.1
-			if neg_ >= -5:
-				neg_ = 0 
-		
-		if direction == -1:
-			if neg_ == 0:
-				neg_ += direction * 100
-			if neg_ < 0 and neg_ >= -2500:
-				neg_ *= 1.1
-			pos_ /= 1.1
-			if pos_ <= 5:
-				pos_ = 0
-			
-			
-				
-		
-		if direction == 0:
-			neg_ /= friction
-			neg_ = ceil(neg_)
-			pos_ /= friction
+		#pos_ /= friction
+		if pos_ < 2:
 			pos_ = floor(pos_)
 			
 		
-		speed = pos_ + neg_
+		speed = pos_ * direction
 				
 			
-					#velocity.x = speed
+		#velocity.x = speed
 		
 		#velocity.x = clamp(lerp(velocity.x, float(speed * direction), 0.75), -2500 - max_mod, 2500 + max_mod)
 		velocity.y = clamp(velocity.y, -jump_height - max_mod, jump_height + max_mod)
@@ -175,22 +173,23 @@ func move(delta):
 		#slope_mod = slope_angle * 15
 	
 func _physics_process(delta: float) -> void:
-	gravity()
-	hook()
-	queue_redraw()
-	if hooked:
+	if !is_dialogue:
 		gravity()
-		swing(delta)
-	move(delta)
-	#_is_sliding()
-	if direction != 0:
-		velocity.x = (abs(speed) + abs(max_mod)) * direction
-	else:
-		velocity.x = speed
-	move_and_slide()
-	if leaving:
-		leaving = false
-		get_tree().change_scene_to_file("res://assets/hack_n_slash.tscn")
+		hook()
+		queue_redraw()
+		if hooked:
+			gravity()
+			swing(delta)
+		move(delta)
+		#_is_sliding()
+		if direction != 0:
+			velocity.x = (abs(speed) + abs(max_mod)) * direction
+		else:
+			velocity.x = speed
+		move_and_slide()
+		if leaving:
+			leaving = false
+			get_tree().change_scene_to_file("res://assets/hack_n_slash.tscn")
 
 # handle grapple input
 	
@@ -203,7 +202,7 @@ func hook():
 			hooked = true
 			hook_velocity = to_local(hook_pos).normalized() * rope_pull
 			current_rope_length = global_position.distance_to(hook_pos)
-	if Input.is_action_just_released("grapple"):
+	if Input.is_action_just_released("grapple") or (!Input.is_action_pressed("grapple") and !is_dialogue):
 		if hook_pos:
 			if hook_pos.y > global_position.y:
 				release_mod = 1
@@ -247,18 +246,18 @@ func swing(delta):
 
 func _input(event: InputEvent) -> void:
 	var radius = 250
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !is_dialogue:
 		$Cursor.global_position += event.screen_relative
 		var normal = ($Cursor.global_position - global_position).normalized()
 		$Cursor.global_position = global_position + (normal * radius)
-	if Launch.is_joypad:
+	if Launch.is_joypad and !is_dialogue:
 		$Cursor.position = Vector2(aim_hor, aim_vert) * radius
 # flip character to face appropriate direction
 # draw line between hook and player
 
 func _draw() -> void:
 	if hook_pos:
-		if hooked or zipping:
+		if hooked:
 			draw_line(Vector2(0, -32), to_local(hook_pos), Color.BLACK, 3, true)
 	if draw_swing_air:
 		animation.play("swing_air")
@@ -294,6 +293,8 @@ func _draw() -> void:
 		animation.scale.x = 5
 	if direction < 0:
 		animation.scale.x = -5
+	if is_dialogue:
+		animation.speed_scale = 0
 	var pos = global_position
 
 
@@ -301,3 +302,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	Launch.current_game = Launch.game.MENU
 	leaving = true
 	
+func _dialogue_started(resource: DialogueResource):
+	is_dialogue = true
+	Launch.current_game = Launch.game.MENU
+
+func _dialogue_ended(resource: DialogueResource):
+	is_dialogue = false
+	Launch.current_game = Launch.game.PLATFORMER
